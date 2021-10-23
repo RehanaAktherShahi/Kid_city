@@ -14,7 +14,7 @@
 	#my_account_dropdown li a{color: grey;font-size: 14px;}
 	#search_bar{background: #ff8080;}
 	#search_bar #logo{font-size: 30px;font-weight: 700;color: white;}
-	#search_form{display: flex;}
+	#search_form{display: flex;padding-left: 20px;}
 	#search_form li:first-child{width: 500px;padding-top: 25px;}	
 	#search{background: white;padding-left: 10px;padding-right: 10px;box-shadow: none;box-sizing: border-box;border: 2px solid black;border-right: none;height: 37px;margin-bottom: 2px;font-size: 14px;}
 	nav{background: #ff8080;height: 40px;line-height: 40px;border-top: 1px solid white;box-shadow: none;}
@@ -63,7 +63,7 @@
 	</div>
 <!-- searchbar section end -->
 <!-- menu bar section start-->
-<nav>
+<nav style="padding-left: 300px;">
 	<div class="nav-wrapper">
 		<!-- left menu -->
 		<ul class="left">
@@ -110,6 +110,34 @@
 <?php endfor; ?>
 </div>
 <!-- category section end -->
+<!--category-product-list-section start-->
+<div class="row">
+	<h6 style="padding-left: 10px;"><b>Top Sold Products</b></h6>
+	<?php for($i=0; $i<6; $i++): ?>
+	<div class="col l2 m3 s6">
+		<!-- card-section start-->
+		<div class="card">
+			<div class="card-image">
+				<img src="<?= base_url('assects/image/F1.jpg'); ?>" class="responsive-img" style="width: 100%;height: 190px;">
+			</div>
+			<div class="card-content" style="padding: 10px;border-bottom: 1px solid silver;">
+				<h6 style="font-size: 14px;color: blue;font-weight: 500;margin-top: 5px;">Product Title</h6>
+				
+				<h5 style="font-size: 20px;color: green;font-weight: 500;margin-top: 5px;margin-bottom: 5px;"><span style="font-weight: 800;font-size: 20px;"> &#2547; </span>&nbsp;1500</h5>
+			</div>
+			<div class="card-content" style="padding: 3px;">
+				<center>
+				     <a href="" class="btn btn-flat btn-floating waves-effect"><span class="fa fa-shopping-cart"></span></a>
+				     <a href="" class="btn btn-flat btn-floating waves-effect"><span class="fa fa-eye"></span></a>
+			    </center>
+
+		    </div>
+		</div>
+		<!-- card-section end-->
+	</div>
+<?php endfor; ?>
+</div>
+<!--category-product-list-section end-->
 <!-- footer section start -->
 <footer class="page-footer" style="background: #ff8080;">
     <div class="row">
