@@ -26,8 +26,8 @@
     </div>
     <!-- my account dropdown start -->
 	<ul class="dropdown-content" id="my_account_dropdown">
-		<li><a href="" class="waves-effect"><span class="fa fa-user-plus"></span>&nbsp;Register</a></li>
-		<li><a href="" class="waves-effect"><span class="fa fa-sign-in-alt"></span>&nbsp;Login</a></li>
+		<li><a href="<?= base_url('home/user_signup'); ?>" class="waves-effect"><span class="fa fa-user-plus"></span>&nbsp;Register</a></li>
+		<li><a href="<?= base_url('home/user_signin'); ?>" class="waves-effect"><span class="fa fa-sign-in-alt"></span>&nbsp;Login</a></li>
 	</ul>
 	<!-- my account dropdown end -->
 	</div> 

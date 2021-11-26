@@ -20,7 +20,20 @@ class Home extends CI_Controller
 	{
 		$this->load->view('home/user_signin');
 	}
+
+	public function carts()
+	{
+		$this->load->view('home/my_cart');
+	}
 	
+	public function category()
+	{
+		$this->load->view('home/view_category');
+	}
+	public function product_detail()
+	{
+		$this->load->view('home/view_product');
+	}
 	
 }
 

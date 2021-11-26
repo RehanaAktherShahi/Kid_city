@@ -18,7 +18,7 @@
        <div class="col l4  s12">
         	<h5 class="white-text">Help</h5>
         	<ul>
-          		<p style="font-size: 15px; text-align: justify;">Daily Bazar is dedicated to ensuring your<br> complete satisfaction, and we are always<br> happy to hear from you.
+          		<p style="font-size: 15px; text-align: justify;">KidsCity is dedicated to ensuring your<br> complete satisfaction, and we are always<br> happy to hear from you.
 				If you have any<br> questions / comments / just want share<br> your thoughts,</p>
           		<li><a class="grey-text text-lighten-3" href="">Read More</a></li>
         	</ul>
@@ -31,8 +31,8 @@
           <li><a href="">Policies</a></li>
           <li><a href="">Terms & Conditions</a></li>
           <li><a href="">Our Outlets</a></li>
-          <li><a href="">User Login</a></li>
-          <li><a href="">User Registration</a></li>
+          <li><a href="<?= base_url('home/user_signin'); ?>">User Login</a></li>
+          <li><a href="<?= base_url('home/user_signup'); ?>">User Registration</a></li>
           <li><a href="">Admin Login</a></li>
         </ul>
       </div>
@@ -54,7 +54,6 @@
 				<!-- social media icon section end -->
     	
       </div>
-     
     </div>
   <div class="footer-copyright" style="padding-left: 10px;padding-right: 10px;background: #ffb3b3;">
     © 2021 Copyright Message

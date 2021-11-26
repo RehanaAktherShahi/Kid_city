@@ -17,8 +17,8 @@
 	</div>
 	<!-- my account dropdown -->
 	<ul class="dropdown-content" id="my_account_dropdown">
-		<li><a href="" class="waves-effect"><span class="fa fa-user-plus"></span>&nbsp;Register</a></li>
-		<li><a href="" class="waves-effect"><span class="fa fa-sign-in-alt"></span>&nbsp;Login</a></li>
+		<li><a href="<?= base_url('home/user_signup'); ?>" class="waves-effect"><span class="fa fa-user-plus"></span>&nbsp;Register</a></li>
+		<li><a href="<?= base_url('home/user_signin'); ?>" class="waves-effect"><span class="fa fa-sign-in-alt"></span>&nbsp;Login</a></li>
 	</ul>
 	<!-- my account dropdown -->
 	<!-- topbar section end-->
@@ -26,7 +26,7 @@
 	<div id="search_bar" style="padding: 1px;">
 	<div class ="row">
 		<div class="col l3 m3 s10">
-			<h6 style="margin-top: 40px;"><a href="<?= base_url('home'); ?>" id="logo">Kids City</a></h6>
+			<h6 style="margin-top: 40px;"><a href="<?= base_url('index'); ?>" id="logo">Kids City</a></h6>
 		</div>
 	<div class="col l6 m6 s10">
 		<!-- search products form start -->
@@ -41,7 +41,7 @@
 		<!-- search products form end -->
 	</div>
     <div class="col l3 m3 s10">
-    	<h6 style="font-size: 14px;color: white;text-align: center;line-height: 18px;font-weight: 500;margin-top: 15px;padding-top: 25px;"><a href="<?= base_url('home'); ?>" style="color: white;font-size: 14px;color: white;"><span class="fa fa-shopping-cart" style="font-size: 30px;"></span>&nbsp;<br/>0 Items - <span style="font-size: 14px;font-weight: 800"> &#2547; </span>0</a></h6>
+    	<h6 style="font-size: 14px;color: white;text-align: center;line-height: 18px;font-weight: 500;margin-top: 15px;padding-top: 25px;"><a href="<?= base_url('home/carts'); ?>" style="color: white;font-size: 14px;color: white;"><span class="fa fa-shopping-cart" style="font-size: 30px;"></span>&nbsp;<br/>0 Items - <span style="font-size: 14px;font-weight: 800"> &#2547; </span>0</a></h6>
     </div>
 	</div> 
 	</div>
