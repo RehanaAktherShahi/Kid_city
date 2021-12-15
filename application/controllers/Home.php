@@ -34,6 +34,16 @@ class Home extends CI_Controller
 	{
 		$this->load->view('home/view_product');
 	}
+
+	public function dashboard()
+	{
+		$this->load->view('home/dashboard');
+	}
+
+	public function my_orders()
+	{
+		$this->load->view('home/my_orders');
+	}
 	
 }
 
