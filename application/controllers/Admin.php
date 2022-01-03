@@ -9,7 +9,12 @@ class Admin extends CI_Controller
 	}
 	public function index()
 	{
+		if($this->session->userdata('admin_id') == ""){
 			$this->load->view('admin/login');
+		}
+		else{
+			return redirect('admin/dashboard');
+		}
 	}
 
 	public function loggedin()
@@ -35,6 +40,25 @@ class Admin extends CI_Controller
 
 
 		}
+	}
+
+	public function dashboard()
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			$this->load->view('admin/dashboard');
+		}
+	}
+
+	public function signout()
+	{
+		$this->session->unset_userdata('admin_id');
+		$this->session->unset_userdata('admin_username');
+		$this->session->unset_userdata('admin_fullname');
+		return redirect('admin/index');
 	}
 	
 }

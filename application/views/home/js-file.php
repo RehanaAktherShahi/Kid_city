@@ -7,6 +7,10 @@
    			fullWidth: true,
     		indicators: true
   		 });
+		//collapsible script
+		$('.collapsible').collapsible();
+		//sidenav script
+		$('.sidenav').sidenav();
 		// dropdown script
 		$('.dropdown-trigger').dropdown({
 			coverTrigger:false
