@@ -162,6 +162,24 @@
 	</div>
 	
 	<!-- 4 card section end -->
+	<!-- 2 card section start -->
+	<div class="row">
+		<div class="col l7 m7 s12">
+			<div class="card">
+				<div class="card-content">
+					<div id="chartContainer" style="height: 300px; width: 100%;"></div>
+				</div> 
+			</div>
+		</div>
+		<div class="col l5 m5 s12">
+			<div class="card">
+				<div class="card-content">
+					
+				</div> 
+			</div>
+		</div>
+	</div>
+	<!-- 2 card section end -->
 	<!-- body section end -->
 	<?php $this->load->view('home/js-file'); ?>
 	<?php $this->load->view('admin/custom_js'); ?>
