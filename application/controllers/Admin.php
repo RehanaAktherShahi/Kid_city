@@ -60,6 +60,17 @@ class Admin extends CI_Controller
 		$this->session->unset_userdata('admin_fullname');
 		return redirect('admin/index');
 	}
+
+	public function add_category()
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			$this->load->view('admin/add_category');
+		}
+	}
 	
 }
 

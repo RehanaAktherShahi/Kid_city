@@ -5,83 +5,16 @@
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
 		body{background: #f2f2f2;}
-		nav{background: #ff8080;height: 45px;line-height: 45px;}
-		nav .brand-logo{font-weight: 500;font-size: 20px;}
-		.collapsible-header{padding-left: 30px!important;font-weight: 500;font-size: 14px;}
-		.collapsible-header:hover{background: #4CAF50!important;}
-		#side_manu li a:hover{background: #4CAF50;}
 		#order_dropdown,#product_dropdown{width: 200px!important;padding-top: 8px;padding-bottom: 8x;}
 		#category_dropdown,#customer_dropdown{width: 230px!important;padding-top: 8px;padding-bottom: 8x;}
 		#order_dropdown a,#category_dropdown a,#product_dropdown a,#customer_dropdown a{color: grey;font-size: 14x;font-weight: 500;}
+		#top_sold_products li{border-bottom: 1px dashed silver;padding: 10px;}
+		#top_sold_products li:hover{background: rgba(0,0,0,0.1);}
 	</style>
 </head>
 <body>
 	<!-- body section start -->
-	<!-- navbar section start -->
-	<nav>
-	<div class="nav-wrapper">
-		<a href="<?= base_url('admin/dashboard'); ?>" class="brand-logo">&nbsp;Admin Panel</a>
-		<!-- right section start -->
-		<ul class="right">
-			<li><a href="#!" class="sidenav-trigger" data-target="side_manu" style="display: block;height: 45px;line-height: 45px;"><span class="fa fa-bars"></span>&nbsp;Menu</a></li>
-		</ul>
-		<!-- right section end -->
-	</div>
-    </nav>
-	<!-- navbar section end -->
-
-	<!-- side menu section start -->
-	<ul class="sidenav collapsible" id="side_manu">
-		<li><a href="">Dashboard</a></li>
-		<li>
-			<div class="collapsible-header">Categories</div>
-			<div class="collapsible-body">
-				<ul>
-					<li><a href="">Add Category</a></li>
-					<li><a href="">Manage Categories</a></li>
-				</ul>
-			</div>
-		</li>
-		<li>
-			<div class="collapsible-header">Products</div>
-			<div class="collapsible-body">
-				<ul>
-					<li><a href="">Add Product</a></li>
-					<li><a href="">Manage Products</a></li>
-				</ul>
-			</div>
-		</li>
-		<li>
-			<div class="collapsible-header">Orders</div>
-			<div class="collapsible-body">
-				<ul>
-					<li><a href="">Pending Orders</a></li>
-					<li><a href="">Delivered Orders</a></li>
-					<li><a href="">Manage Orders</a></li>
-				</ul>
-			</div>
-		</li>
-		<li>
-			<div class="collapsible-header">Sales</div>
-			<div class="collapsible-body">
-				<ul>
-					<li><a href="">Today Sales</a></li>
-					<li><a href="">All Time Sales</a></li>
-				</ul>
-			</div>
-		</li>
-		<li>
-			<div class="collapsible-header">Customers</div>
-			<div class="collapsible-body">
-				<ul>
-					
-					<li><a href="">Manage Customers</a></li>
-				</ul>
-			</div>
-		</li>
-		<li><a href="<?= base_url('admin/signout'); ?>">Sign Out</a></li>
-	</ul>
-	<!-- side menu section end -->
+	<?php $this->load->view('admin/topbar'); ?>
 
 	<!-- 4 card section start -->
 	<div class="row" style="margin-top: 10px;margin-bottom: 0px;">
@@ -174,7 +107,13 @@
 		<div class="col l5 m5 s12">
 			<div class="card">
 				<div class="card-content">
-					
+					<h6>Top Products Sold</h6>
+					<ul id="top_sold_products">
+						<li>
+							<h6 style="font-size: 14px;font-weight: 500;"><a href="" target="_blank" style="color: black;">Product Title</a></h6>
+							<h6 style="font-size: 15px;"><span style="font-weight: 800;font-size: 14px;"> &#2547; </span>&nbsp;500<span class="right"><b>Units- 150</b></h6>
+						</li>
+					</ul>
 				</div> 
 			</div>
 		</div>
