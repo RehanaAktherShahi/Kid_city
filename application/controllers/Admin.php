@@ -68,7 +68,53 @@ class Admin extends CI_Controller
 			return redirect('admin/index');
 		}
 		else{
-			$this->load->view('admin/add_category');
+			$args = [
+				'date>=' => date('Y-m-d',strtotime("-7 days"))
+			];
+			$data['categories'] = $this->cm->fetch_records_by_args('ms_categories',$args);
+			$this->load->view('admin/add_category',$data);
+		}
+	}
+
+	public function upload_category()
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			$config = [
+				'upload_path' => './uploads/category_image',
+				'allowed_types' => 'jpg|jpeg|png|gif'
+			];
+			$this->load->library('upload',$config);
+
+			$this->upload->do_upload('image');
+			$img = $this->upload->data('file_name');
+			$data = [
+				'category_name' => $this->input->post('category_name'),
+				'image' => $img,
+				'status' => '0',
+				'date' => date('Y-m-d')
+			];
+			if($data['category_name'] == "" && $data['image'] == "")
+			{
+				$this->session->set_flashdata('error', 'Please Enter Required Information.');
+			}
+			else
+			{
+				$result = $this->cm->insert_data('ms_categories',$data);
+				if($result == true)
+				{
+					$this->session->set_flashdata('success', 'Congratulation ! Category Insert Successfully.' );
+				}
+				else{
+					$this->session->set_flashdata('error','Fail ! Category Insert.');
+				}
+
+			}
+
+			return redirect('admin/add_category');
 		}
 	}
 	

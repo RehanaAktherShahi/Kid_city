@@ -18,6 +18,7 @@
 <div class="row" style="margin-top: 10px;">
 	<div class="col l5 m5 s12">
 		<!-- add category section start -->
+		<?= form_open_multipart('admin/upload_category'); ?>
 		<div class="card">
 			<div class="card-content" style="border-bottom: 1px solid silver;padding: 10px;">
 				<h6 style="font-size: 14px;font-weight: 500;">Add Category</h6>
@@ -33,6 +34,7 @@
 			</div>
 		</div>
 		<!-- add category section end -->
+		<?= form_close(); ?>
 	</div>
 	<div class="col l7 m7 s12">
 		<!-- recent category start -->
@@ -47,15 +49,19 @@
 						<th>Category Name</th>
 						<th>Action</th>
 					</tr>
+					<?php if(count($categories)): foreach($categories as $cate): ?>
 					<tr>
 						<td>
 							<center>
-							<img src="<?= base_url('assects/image/F1.jpg'); ?>" class="responsive-img" id="category_image">
+							<img src="<?= base_url(),'uploads/category_image/' .$cate->image; ?>" class="responsive-img" id="category_image">
 							</center>
 						</td>
-						<td>Category Name</td>
+						<td><?= $cate->category_name; ?></td>
 						<td><a href=""><span class="fa fa-edit"></span></a> - <a href=""><span class="fa fa-trash"></span></a></td>
 					</tr>
+					<?php endforeach;
+					else: ?>
+					<?php endif; ?>
 				</table>
 			</div>
 		</div>
