@@ -70,3 +70,22 @@
 		<li><a href="<?= base_url('admin/signout'); ?>">Sign Out</a></li>
 	</ul>
 	<!-- side menu section end -->
+	<?php if($msg = $this->session->flashdata('success')): ?>
+	<!-- message section start-->
+	<div class="card">
+		<div class="card-content" style="padding: 10px;padding-left: 15px;">
+			<h6 style="font-weight: 500;font-size: 15px;margin-top: 5px;"><span class="fa fa-check-circle green-text"></span>&nbsp;<?= $msg; ?></h6>
+		</div>
+	</div>
+	<!-- message section end-->
+	<?php endif; ?>
+
+	<?php if($msg = $this->session->flashdata('error')): ?>
+	<!-- message section start-->
+	<div class="card">
+		<div class="card-content" style="padding: 10px;padding-left: 15px;">
+			<h6 style="font-weight: 500;font-size: 15px;margin-top: 5px;"><span class="fa fa-exclamation-triangle red-text"></span>&nbsp;<?= $msg; ?></h6>
+		</div>
+	</div>
+	<!-- message section end-->
+	<?php endif; ?>

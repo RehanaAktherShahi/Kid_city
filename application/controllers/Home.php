@@ -4,11 +4,18 @@ class Home extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
+		//main model load
+		$this->load->model('main','cm');
 	}
 
 	public function index()
 	{
-		$this->load->view('home/index');
+		$args = [
+			'status' => '0'
+		];
+		$data['categories'] = $this->cm->fetch_records_by_args('ms_categories',$args);
+
+		$this->load->view('home/index',$data);
 	}
 
 	public function user_signup()
