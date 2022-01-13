@@ -4,7 +4,7 @@
 	<title>User sign in - KidsCity</title>
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
-		#top_bar{background: #ff8080;}
+		#top_bar{background: #df80ff;}
 		#top_bar #logo{font-size: 25px;font-weight: 500;color: white;}
 		#my_account_dropdown{width:12%!important;padding-top: 10px;padding-bottom: 10px;}
 		#my_account_dropdown li a{color: grey;font-size: 14px;}

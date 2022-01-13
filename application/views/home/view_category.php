@@ -5,7 +5,7 @@
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
 		body{background: #ffe6ff;}
-		.btn-flat:hover{background: #09aeae;color: white;}
+		.btn-flat:hover{background: #ac00e6;color: white;}
 		#category_filter{padding-top: 10px;padding-bottom: 10px;}
 		#category_filter li a{color: grey;font-size: 14px;}
 	</style>

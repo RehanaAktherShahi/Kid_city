@@ -5,7 +5,7 @@
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
 		body{background: #ffe6ff;}
-		.btn-flat:hover{background: #ff8080;color: white;}
+		.btn-flat:hover{background: #ac00e6;color: white;}
 		#input-box{border: 1px solid silver;box-shadow: none;box-sizing: border-box;padding-left: 10px;padding-right: 10px;height: 40px;border-radius: 3px;}
 		#quantity_form{display: flex;}
 		#quantity_form li{margin: 3px;}
@@ -31,12 +31,12 @@
 				<!-- quantity form start -->
 				<ul id="quantity_form">
 					<li>
-						<button type="button" class="btn btn-floating"  style="background: #ff8080;box-shadow: none;">-
+						<button type="button" class="btn btn-floating"  style="background: #ac00e6;box-shadow: none;">-
 						</button>
 					</li>
 					<input type="text" name="" id="input-box" value="5" readonly>
 					<li>
-						<button type="button" class="btn btn-floating"  style="background: #ff8080;box-shadow: none;">+	
+						<button type="button" class="btn btn-floating"  style="background: #ac00e6;box-shadow: none;">+	
 						</button>
 					</li>
 				</ul>
@@ -70,7 +70,7 @@
 			<div class="row" style="margin-top: 18px;margin-bottom: 0px;">
 
 				<div class="col 16 m6 s6">
-					<a href="" class="btn waves-effect waves-light" style="font-size: 12px;text-transform: capitalize;font-weight: 500;width: 100%;background:  #ff8080;box-shadow: none;height: 40px;">Continue Shopping</a>
+					<a href="" class="btn waves-effect waves-light" style="font-size: 12px;text-transform: capitalize;font-weight: 500;width: 100%;background:  #ac00e6;box-shadow: none;height: 40px;">Continue Shopping</a>
 				</div>
 				<div class="col 16 m6 s6">
 					<a href="" class="btn waves-effect waves-light" style="font-size: 12px;text-transform: capitalize;font-weight: 500;width: 100%;background: black;box-shadow: none;height: 40px;">Place Order</a>

@@ -4,7 +4,7 @@
 	<title>User sign Up - KidsCity</title>
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
-		#top_bar{background: #ff8080;}
+		#top_bar{background: #df80ff;}
 		#top_bar #logo{font-size: 25px;font-weight: 500;color: white;}
 		#my_account_dropdown{width:12%!important;padding-top: 10px;padding-bottom: 10px;}
 		#my_account_dropdown li a{color: grey;font-size: 14px;}
@@ -69,7 +69,7 @@
 	<!-- user sign_up form end -->
 	<!-- footer section start -->
 	<footer>
-		<div class="footer-copyright" style="padding-left: 10px;padding-right: 10px;background: #ff8080;">
+		<div class="footer-copyright" style="padding-left: 10px;padding-right: 10px;background: #df80ff;">
     	© 2021 Copyright Message
     	<a class="grey-text text-lighten-4 right" href="#!">Develop By : Rehana Akther Shahi</a>
   		</div>

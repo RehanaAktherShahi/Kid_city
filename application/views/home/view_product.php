@@ -5,7 +5,7 @@
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
 		body{background: #ffe6ff;}
-		.btn-flat:hover{background: #09aeae;color: white;}
+		.btn-flat:hover{background: #ac00e6;color: white;}
 		
 	</style>
 </head>
@@ -31,7 +31,7 @@
 					<h5><b><span class="left" style="font-weight: 800;font-size: 25px;"> &#2547;</span>&nbsp;500</b></h5>
 					<div class="row">
 						<div class="col l6 m6 s12">
-							<button type="button" class="btn waves-effect" style="background: #ff8080;width: 100%;height: 40px;box-shadow: none;"><span class="fa fa-shopping-cart"></span>&nbsp;Add to Cart</button>
+							<button type="button" class="btn waves-effect" style="background: #ac00e6;width: 100%;height: 40px;box-shadow: none;"><span class="fa fa-shopping-cart"></span>&nbsp;Add to Cart</button>
 						</div>
 						<div class="col l6 m6 s12">
 							<button type="button" class="btn waves-effect waves-light" style="background: black;width: 100%;height: 40px;box-shadow: none;"><span class="fa fa-cube"></span>&nbsp;Buy Now</button>

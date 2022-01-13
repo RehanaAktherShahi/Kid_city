@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>KidsCity.com</title>
-	<link rel="shortcut icon" href="<?= base_url('assects/image/logo.png'); ?>">
+	<link rel="shortcut icon" href="<?= base_url('assects/image/Logo.jpeg'); ?>">
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
 	body{background: #ffe6ff;}

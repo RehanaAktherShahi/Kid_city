@@ -5,7 +5,7 @@
   #set_social_icon li a{color: white;padding: 10px 15px;border:1px solid white;}
 </style>
 <!-- footer section start -->
-<footer class="page-footer" style="background: #ff8080;">
+<footer class="page-footer" style="background: #df80ff;">
     <div class="row">
     	<div class="col l6 m6 s12" style="border-right: 1px solid white;">
     		<h6 class="right-align"><span class="fa fa-headset"></span>&nbsp;Contact Us</h6>
@@ -55,7 +55,7 @@
     	
       </div>
     </div>
-  <div class="footer-copyright" style="padding-left: 10px;padding-right: 10px;background: #ffb3b3;">
+  <div class="footer-copyright" style="padding-left: 10px;padding-right: 10px;background: #ac00e6;">
     © 2021 Copyright Message
     <a class="grey-text text-lighten-4 right" href="#!">Develop By : Rehana Akther Shahi</a>
   </div>
