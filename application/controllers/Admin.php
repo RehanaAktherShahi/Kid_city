@@ -117,6 +117,18 @@ class Admin extends CI_Controller
 			return redirect('admin/add_category');
 		}
 	}
+
+	public function manage_category()
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			$data['categories'] = $this->cm->fetch_all_records('ms_categories','desc','limit');
+			$this->load->view('admin/manage_category',$data);
+		}
+	}
 	
 }
 

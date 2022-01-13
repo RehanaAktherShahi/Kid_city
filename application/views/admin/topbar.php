@@ -26,7 +26,7 @@
 			<div class="collapsible-body">
 				<ul>
 					<li><a href="<?= base_url('admin/add_category'); ?>">Add Category</a></li>
-					<li><a href="">Manage Categories</a></li>
+					<li><a href="<?= base_url('admin/manage_category'); ?>">Manage Categories</a></li>
 				</ul>
 			</div>
 		</li>
