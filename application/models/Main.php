@@ -78,4 +78,18 @@ class Main extends CI_Model
     		return false;
     	}
     }
+
+    public function fetch_records_by_args_with_like($tablename,$args)
+    {
+    	$fetch_rec = $this->db->select()
+    			->from($tablename)
+    			->like($args)
+    			->get();
+    	if($fetch_rec->num_rows() > 0){
+			return $fetch_rec->result();
+		}
+		else{
+			return $fetch_rec->result();
+		}
+    }
 }

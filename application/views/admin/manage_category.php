@@ -9,6 +9,9 @@
 		.btn-flat:hover{background: #996633;color: white;}
 		.action_dropdown{width: 120px!important}
 		.action_dropdown li a{color: grey;font-size: 14px;font-weight: 500;}
+		#search_category{display: flex;}
+		#search_category li:first-child{width: 250px;}
+		#input_box{border: 1px solid silver;box-shadow: none;box-sizing: border-box;padding-left: 10px;padding-right: 10px;height: 40px;border-radius: 0px;}
 	</style>
 </head>
 <body>
@@ -19,6 +22,22 @@
 	<div class="card">
 		<div class="card-content" style="border-bottom: 1px solid silver;padding: 10px;">
 			<h5>Manage Categories</h5>
+			<!-- category search form -->
+			<div class="row">
+				<div class="col l6 m6 s12">
+					<?= form_open('admin/search_category'); ?>
+					<ul id="search_category">
+						<li>
+							<input type="text" name="category_name" id ="input_box" placeholder="Enter Category Name" value="<?= set_value('category_name'); ?>" required> 
+						</li>
+						<li>
+							<button type="submit" class="btn waves-effect waves-light" style="background: black;box-shadow: none;text-transform: capitalize;font-weight: 500;height: 40px;">Search Now</button>
+						</li>
+					</ul>
+					<?= form_close(); ?>
+				</div>
+			</div>
+			<!-- category search form -->
 		</div>
 		<div class="card-content" style="padding: 0px;">
 			<table class="table">

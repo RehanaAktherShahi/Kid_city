@@ -237,6 +237,22 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function search_category()
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			$args = [
+				'category_name' => $this->input->post('category_name')
+			];
+
+			$data['categories'] = $this->cm->fetch_records_by_args_with_like('ms_categories',$args);
+			$this->load->view('admin/manage_category',$data);
+		}
+	}
+
 }
 
 ?>
