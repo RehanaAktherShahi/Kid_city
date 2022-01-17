@@ -155,6 +155,88 @@ class Admin extends CI_Controller
 			return redirect('admin/manage_category');
 		}
 	}
+
+	public function edit_category($id = "")
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			if($id == ""){
+				$this->session->set_flashdata('error','Please Pass Category Id.');
+			}
+			else{
+				$args = [
+					'id'  => $id
+				];
+				$data['category'] = $this->cm->fetch_records_by_args('ms_categories',$args);
+
+				$args = [
+					'date>=' => date('Y-m-d',strtotime("-7 days"))
+				];
+				$data['categories'] = $this->cm->fetch_records_by_args('ms_categories',$args);
+				$this->load->view('admin/edit_category',$data);
+			}
+		}
+	}
+
+	public function update_category($id)
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			$config = [
+				'upload_path' => './uploads/category_image',
+				'allowed_types' => 'jpg|jpeg|png|gif'
+			];
+			$this->load->library('upload',$config);
+			//check image
+			if($_FILES['image']['name'] == ""){
+
+			}
+			else{
+				$args = [
+					'id'  => $id
+				];
+				$old_data = $this->cm->fetch_records_by_args('ms_categories',$args);
+				//delete old image
+				unlink('uploads/category_image/'.$old_data[0]->image);
+				//delete old image
+				$this->upload->do_upload('image');
+			    $img = $this->upload->data('file_name');
+			    $data['image'] = $img;
+			}
+			
+			$data['category_name'] = $this->input->post('category_name');
+			if($data['category_name'] == "")
+			{
+				$this->session->set_flashdata('error', 'Please Enter Category Name.');
+			}
+			else
+			{
+			    $args = [
+				'id' => $id
+			    ];
+
+			    $result = $this->cm->update_records_by_args('ms_categories',$data,$args);
+				if($result == true)
+				{
+					$this->session->set_flashdata('success', 'Congratulation ! Category Update Successfully.' );
+				}
+				else{
+					$this->session->set_flashdata('error','Fail ! Category Update.');
+				}
+
+			}
+
+			
+			return redirect('admin/edit_category/'.$id);
+		}
+	}
+
 }
 
 ?>

@@ -66,4 +66,16 @@ class Main extends CI_Model
     		return false;
     	}
     }
+
+    public function update_records_by_args($tablename,$data,$args)
+    {
+    	$update_rec = $this->db->where($args)
+  				->update($tablename,$data);
+  		if($this->db->affected_rows() > 0){
+    		return true;
+    	}
+    	else{
+    		return false;
+    	}
+    }
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Add Category - KidsCity</title>
+	<title>Edit Category - KidsCity</title>
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
 		body{background: #f2f2f2;}
@@ -12,32 +12,33 @@
 	</style>
 </head>
 <body>
-<!-- body section start -->
+<!-- body section -->
 <?php $this->load->view('admin/topbar'); ?>
-<!-- category section start -->
+<!-- category section -->
 <div class="row" style="margin-top: 10px;">
 	<div class="col l5 m5 s12">
-		<!-- add category section start -->
-		<?= form_open_multipart('admin/upload_category'); ?>
+		<!-- add category section -->
+		<?= form_open_multipart('admin/update_category/'.$category[0]->id); ?>
 		<div class="card">
 			<div class="card-content" style="border-bottom: 1px solid silver;padding: 10px;">
-				<h6 style="font-size: 14px;font-weight: 500;">Add Category</h6>
+				<h6 style="font-size: 14px;font-weight: 500;">Edit Category</h6>
 			</div>
 			<div class="card-content">
 				<h6 style="font-size: 14px;font-weight: 500;">Category Name</h6>
-				<input type="text" name="category_name" id="input_box" placeholder="Enter Category Name" required>
+				<input type="text" name="category_name" id="input_box" value="<?= $category[0]->category_name;?>" placeholder="Enter Category Name" required>
 
 				<h6 style="font-size: 14px;font-weight: 500;">Image</h6>
-				<input type="file" name="image" id="input_file" placeholder="Enter Category Name" required>
+				<img src="<?= base_url().'uploads/category_image/'.$category[0]->image; ?>" style="width: 100px;height: 100px;border: 2px dashed silver;">
+				<input type="file" name="image" id="input_file" placeholder="Enter Category Name">
 				<small style="margin-top: 0px;margin-bottom: 15px;color: red;">Max. Image Size : 2MB | 100px X 100px</small>
-				<button type="submit" class="waves-effect waves-light" style="background: black;display: block;color: white; text-transform: capitalize;font-weight: 500;margin-top: 15px;">Save Category</button>
+				<button type="submit" class="waves-effect waves-light" style="background: black;display: block;color: white; text-transform: capitalize;font-weight: 500;margin-top: 15px;">Update Category</button>
 			</div>
 		</div>
-		<!-- add category section end -->
+		<!-- add category section -->
 		<?= form_close(); ?>
 	</div>
 	<div class="col l7 m7 s12">
-		<!-- recent category start -->
+		<!-- recent category -->
 		<div class="card">
 			<div class="card-content" style="border-bottom: 1px solid silver;padding: 10px;">
 				<h6 style="font-size: 14px;font-weight: 500;">Recent Upload Category <span class="red-text">(Last 7 Days)</span></h6>
@@ -65,12 +66,11 @@
 				</table>
 			</div>
 		</div>
-		<!-- recent category end -->
-	</div>
+		<!-- recent category -->
 	</div>
 </div>
-<!-- category section end -->
-<!-- body section end -->
+<!-- category section -->
+<!-- body section -->
 <?php $this->load->view('home/js-file'); ?>
 	<?php $this->load->view('admin/custom_js'); ?>
 </body>
