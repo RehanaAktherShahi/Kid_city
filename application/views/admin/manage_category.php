@@ -12,6 +12,8 @@
 		#search_category{display: flex;}
 		#search_category li:first-child{width: 250px;}
 		#input_box{border: 1px solid silver;box-shadow: none;box-sizing: border-box;padding-left: 10px;padding-right: 10px;height: 40px;border-radius: 0px;}
+		#category_filter{width: 180px!important;padding-top: 8px;padding-bottom: 8px;}
+		#category_filter li a{color: grey;font-size: 14px;font-weight: 500;}
 	</style>
 </head>
 <body>
@@ -22,7 +24,7 @@
 	<div class="card">
 		<div class="card-content" style="border-bottom: 1px solid silver;padding: 10px;">
 			<h5>Manage Categories</h5>
-			<!-- category search form -->
+			<!-- category search form start -->
 			<div class="row">
 				<div class="col l6 m6 s12">
 					<?= form_open('admin/search_category'); ?>
@@ -36,8 +38,22 @@
 					</ul>
 					<?= form_close(); ?>
 				</div>
+				<!-- category filter start -->
+				<div class="col l6 m6 s12">
+					<span class="right">
+						<button type="button" class="btn waves-effect waves-light dropdown-trigger" data-target="category_filter" style="background: black;box-shadow: none;text-transform: capitalize;font-weight: 500;height: 40px;margin-top: 15px;"><span class="fa fa-filter"></span>&nbsp;Filter</button>
+					</span>
+					
+					<ul class="dropdown-content" id="category_filter">
+						<li><a href="<?= base_url('admin/filter_category/new_category'); ?>" class="waves-effect">New Category First</a></li>
+						<li><a href="<?= base_url('admin/filter_category/old_category'); ?>" class="waves-effect">Old Category First</a></li>
+						<li><a href="<?= base_url('admin/filter_category/highest_products'); ?>" class="waves-effec<??>t">Highest Product</a></li>
+						<li><a href="<?= base_url('admin/filter_category/lowest_products'); ?>" class="waves-effect">Lowest Product</a></li>
+					</ul>
+					<!-- category filter end -->
+				</div>
 			</div>
-			<!-- category search form -->
+			<!-- category search form end -->
 		</div>
 		<div class="card-content" style="padding: 0px;">
 			<table class="table">

@@ -253,6 +253,54 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function filter_category($filter)
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			if($filter == 'new_category'){
+				$order = [
+					'column_name' => 'id',
+					'order'		 => 'desc'
+				];
+
+			}
+			else if($filter == 'old_category'){
+				$order = [
+					'column_name' => 'id',
+					'order'		 => 'asc'
+				];
+
+			}
+			else if($filter == 'highest_products'){
+				$order = [
+					'column_name' => 'count_products',
+					'order'		 => 'desc'
+				];
+
+			}
+			else if($filter == 'lowest_products'){
+				$order = [
+					'column_name' => 'count_products',
+					'order'		 => 'asc'
+				];
+
+			}
+			else{
+				$order = [
+					'column_name' => 'id',
+					'order'		 => 'desc'
+				];
+
+			}
+			$data['categories'] = $this->cm->fetch_records_by_order('ms_categories',$order);
+			$this->load->view('admin/manage_category',$data);
+
+		}
+	}
+
 }
 
 ?>

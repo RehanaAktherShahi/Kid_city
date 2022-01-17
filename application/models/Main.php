@@ -92,4 +92,21 @@ class Main extends CI_Model
 			return $fetch_rec->result();
 		}
     }
+
+    public function fetch_records_by_order($tablename,$order_format)
+    {
+    	extract($order_format);
+    	$fetch_rec = $this->db->select()
+    	->from($tablename)
+    	->order_by($order_format['column_name'],$order_format['order'])
+    	->get();
+    	//echo $this->db->last_query();
+    	//die();
+    if($fetch_rec->num_rows() > 0){
+			return $fetch_rec->result();
+		}
+		else{
+			return $fetch_rec->result();
+		}
+    }
 }
