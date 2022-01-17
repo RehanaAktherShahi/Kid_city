@@ -55,4 +55,15 @@ class Main extends CI_Model
 			return $fetch_rec->result();
 		}
     }
+
+    public function delete_records_by_args($tablename,$args)
+    {
+    	$delete_rec = $this->db->delete($tablename,$args);
+    	if($this->db->affected_rows() > 0){
+    		return true;
+    	}
+    	else{
+    		return false;
+    	}
+    }
 }

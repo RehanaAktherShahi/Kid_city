@@ -48,7 +48,7 @@
 						<!-- action dropdown start -->
 						<ul class="dropdown-content action_dropdown" id="action_dropdown_<?= $cate->id; ?>">
 							<li><a href="<?= base_url('admin/edit_category/'.$cate->id); ?>"><span class="fa fa-edit"></span>&nbsp;Edit</a></li>
-							<li><a href="<?= base_url('admin/delete_category/'.$cate->id); ?>"><span class="fa fa-trash"></span>&nbsp;Delete</a></li>
+							<li><a href="<?= base_url('admin/delete_category/'.$cate->id); ?>" onclick="return confirm('Are you sure delete this category.')"><span class="fa fa-trash"></span>&nbsp;Delete</a></li>
 						</ul>
 						<!-- action dropdown end -->
 					</td>

@@ -57,7 +57,7 @@
 							</center>
 						</td>
 						<td><?= $cate->category_name; ?></td>
-						<td><a href=""><span class="fa fa-edit"></span></a> - <a href=""><span class="fa fa-trash"></span></a></td>
+						<td><a href=""><span class="fa fa-edit"></span></a> - <a href="<?= base_url('admin/delete_category/'.$cate->id); ?>" onclick="return confirm('Are you sure delete this category.')"><span class="fa fa-trash"></span></a></td>
 					</tr>
 					<?php endforeach;
 					else: ?>

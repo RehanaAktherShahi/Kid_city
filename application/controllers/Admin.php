@@ -130,6 +130,31 @@ class Admin extends CI_Controller
 		}
 	}
 	
+	public function delete_category($id = "")
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			if($id == ""){
+				$this->session->set_flashdata('error','Please Pass Category Id.');
+			}
+			else{
+				$args = [
+					'id'  => $id
+				];
+				$result = $this->cm->delete_records_by_args('ms_categories',$args);
+				if($result == true){
+					$this->session->set_flashdata('success','Congratulation ! Category Delete Successfully.');
+				}
+				else{
+					$this->session->set_flashdata('error','Fail ! Category Delete.');
+				}
+			}
+			return redirect('admin/manage_category');
+		}
+	}
 }
 
 ?>
