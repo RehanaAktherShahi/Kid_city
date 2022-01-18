@@ -34,7 +34,7 @@
 			<div class="collapsible-header">Products</div>
 			<div class="collapsible-body">
 				<ul>
-					<li><a href="">Add Product</a></li>
+					<li><a href="<?= base_url('admin/add_product'); ?>">Add Product</a></li>
 					<li><a href="">Manage Products</a></li>
 				</ul>
 			</div>

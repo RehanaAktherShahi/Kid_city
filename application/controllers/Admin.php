@@ -301,6 +301,60 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function add_product()
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			$data['categories'] = $this->cm->fetch_all_records('ms_categories','desc','limit');
+			$this->load->view('admin/upload_product',$data);
+		}
+	}
+
+	public function save_product()
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			$config = [
+				'upload_path' => './uploads/product_image',
+				'allowed_types' => 'jpg|jpeg|png|gif'
+			];
+			$this->load->library('upload',$config);
+			$this->upload->do_upload('product_image');
+			$img = $this->upload->data('file_name');
+			$data = [
+				'product_title' => $this->input->post('product_title'),
+				'image'  => $img,
+				'category_id' => $this->input->post('category_id'),
+				'short_description' => $this->input->post('short_desc'),
+				'color' => $this->input->post('color'),
+				'size' => $this->input->post('size'),
+				'price' => $this->input->post('price'),
+				'status' => '0',
+				'upload_date' => date('Y-m-d')
+			];
+			if($data['product_title'] == "" && $data['image'] == "" && $data['price'] == ""){
+				$this->session->set_flashdata('error','Please Enter Required Information.');
+			}
+			else{
+				$result = $this->cm->insert_data('ms_products',$data);
+				if($result == true){
+					$this->session->set_flashdata('success','Congratulation ! Product upload Successfully.');
+				}
+				else{
+					$this->session->set_flashdata('error','Fail ! Product upload.');
+				}
+			}
+			return redirect('admin/add_product');
+		}
+	}
+
+
 }
 
 ?>
