@@ -84,6 +84,12 @@
 						<ul class="dropdown-content action_dropdown" id="action_dropdown_<?= $cate->id; ?>">
 							<li><a href="<?= base_url('admin/edit_category/'.$cate->id); ?>"><span class="fa fa-edit"></span>&nbsp;Edit</a></li>
 							<li><a href="<?= base_url('admin/delete_category/'.$cate->id); ?>" onclick="return confirm('Are you sure delete this category.')"><span class="fa fa-trash"></span>&nbsp;Delete</a></li>
+							<?php if($cate->status == "0"): ?>
+							<li><a href="<?= base_url('admin/change_category_status/'.$cate->id.'/1'); ?>"><span class="fa fa-eye-slash"></span>&nbsp;Inactive</a></li>
+							<?php else: ?>
+								<li><a href="<?= base_url('admin/change_category_status/'.$cate->id.'/0'); ?>"><span class="fa fa-eye"></span>&nbsp;Active</a></li>
+							<?php endif; ?>
+						</ul>
 						</ul>
 						<!-- action dropdown end -->
 					</td>
