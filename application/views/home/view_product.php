@@ -49,17 +49,21 @@
 			<!-- related product start -->
 			<h5 style="padding-left: 15px;font-size: 22px;font-weight: 500;">Related Products</h5>
 			<div class="row" style="margin-bottom: 0px;">
-			<?php for($i=0; $i<5; $i++): ?>	
+			<?php if(count($related_products)):
+				foreach($related_products as $r_pro): ?>	
 	<div class="col l2 m3 s6">
 		<!-- card-section start -->
 		<div class="card">
 			<div class="card-image">
-				<img src="<?= base_url('assects/image/F1.jpg'); ?>" class="responsive-img" style="width: 100%;height: 190px;">
+				<img src="<?= base_url().'uploads/product_image/'.$r_pro->image; ?>" class="responsive-img" style="width: 100%;height: 190px;">
 			</div>
 			<div class="card-content" style="padding: 10px;border-bottom: 1px solid silver;">
-				<h6 style="font-size: 15px;color: blue;font-weight: 500;margin-top: 5px;">product title</h6>
-				<h6 style="font-size: 13px;color:grey;box-shadow: none;margin top: 5px;">Category</h6>
-				<h5 style="font-size: 20px;color: green;font-weight: 500;margin-top: 5px;margin-bottom: 5px;"><span class="left" style="font-weight: 800;font-size: 20px;"> &#2547; </span>&nbsp;500</h5>
+				<h6 style="font-size: 15px;color: blue;font-weight: 500;margin-top: 5px;"><?= $r_pro->product_title; ?></h6>
+				<h6 style="font-size: 13px;color:grey;box-shadow: none;margin top: 5px;"><?php
+				$category_data = get_category_details($r_pro->category_id);
+				echo $category_data[0]->category_name;
+				?></h6>
+				<h5 style="font-size: 20px;color: green;font-weight: 500;margin-top: 5px;margin-bottom: 5px;"><span class="left" style="font-weight: 800;font-size: 20px;"> &#2547; </span>&nbsp;<?= $r_pro->price;?></h5>
 			</div>
 			<div class="card-content" style="padding: 3px;">
 				<center>
@@ -71,7 +75,10 @@
 		</div>
 		<!-- card-section end -->
 	</div>
-	<?php endfor; ?>
+	<?php endforeach;
+	else: ?>
+		<h6 style="font-size: 14px;font-weight: 500;padding-left: 15px;">Related Products Not Found.</h6>
+	<?php endif; ?>
 			</div>
 			<!-- related product end -->	
 		</div>

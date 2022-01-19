@@ -96,7 +96,11 @@ class Home extends CI_Controller
 			'id' => $id
 		];
 		$data['product'] = $this->cm->fetch_records_by_args('ms_products',$args);
-
+		$args = [
+			'id!='        => $id,
+			'category_id' => $data['product'][0]->category_id
+		];
+		$data['related_products'] = $this->cm->fetch_records_by_args_with_limit('ms_products',$args,'10');
 		$this->load->view('home/view_product',$data);
 	}
 
