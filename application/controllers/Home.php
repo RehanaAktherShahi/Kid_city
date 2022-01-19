@@ -90,9 +90,14 @@ class Home extends CI_Controller
 		$data['category_detail'] = $this->cm->fetch_records_by_args('ms_categories',$args);
 		$this->load->view('home/view_category',$data);
 	}
-	public function product_detail()
+	public function product_detail($id = "")
 	{
-		$this->load->view('home/view_product');
+		$args = [
+			'id' => $id
+		];
+		$data['product'] = $this->cm->fetch_records_by_args('ms_products',$args);
+
+		$this->load->view('home/view_product',$data);
 	}
 
 	public function dashboard()

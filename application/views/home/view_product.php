@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Products Details - KidsCity</title>
+	<title><?= (count($product))?$product[0]->product_title : 'Product Not Found.'; ?> - KidsCity</title>
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
 		body{background: #ffe6ff;}
@@ -18,17 +18,20 @@
 			<!-- product details section start -->
 			<div class="row">
 				<div class="col l4 m4 s12">
-					<img src="<?= base_url('assects/image/F1.jpg'); ?>" class="responsive-img" style="border: 1px solid rgba(0,0,0,0.1);">
+					<img src="<?= base_url().'uploads/product_image/'.$product[0]->image; ?>" class="responsive-img" style="border: 1px solid rgba(0,0,0,0.1);">
 				</div>
 				<div class="col l5 m5 s12">
-					<h5 style="margin-top: 0px;font-weight: 500;">Product title</h5>
-					<h6 style="font-size: 13px;color:grey;box-shadow: none;margin top: 5px;">Home / Category / Product Name</h6>
+					<h5 style="margin-top: 0px;font-weight: 500;"><?= $product[0]->product_title; ?></h5>
+					<?php
+					$category_detail = get_category_details($product[0]->category_id);
+					?>
+					<h6 style="font-size: 13px;color:grey;box-shadow: none;margin top: 5px;"><a href="<?= base_url('index'); ?>">Home</a> / <a href="<?= base_url('home/category_products/'.$product[0]->category_id); ?>"><?= $category_detail[0]->category_name; ?></a> / <?= $product[0]->product_title; ?></h6>
 					<div class="divider" style="margin-top: 15px;margin-bottom: 15px;"></div>
-					<p style="font-size: 14px;color: grey;line-height: 20px;">hgde hghdvghg hghdghddtyvgdhdhs</p>
-					<h6 style="font-size: 15px;font-weight: 500;color: grey;">Color: Blue</h6>
-					<h6 style="font-size: 15px;font-weight: 500;color: grey;">Size : 5</h6>
+					<p style="font-size: 14px;color: grey;line-height: 20px;"><?= $product[0]->short_description; ?></p>
+					<h6 style="font-size: 15px;font-weight: 500;color: grey;">Color:  <?= $product[0]->color; ?></h6>
+					<h6 style="font-size: 15px;font-weight: 500;color: grey;">Size : <?= $product[0]->size; ?></h6>
 					<div class="divider" style="margin-top: 15px;margin-bottom: 15px;"></div>
-					<h5><b><span class="left" style="font-weight: 800;font-size: 25px;"> &#2547;</span>&nbsp;500</b></h5>
+					<h5><b><span class="left" style="font-weight: 800;font-size: 25px;"> &#2547;</span>&nbsp;<?= $product[0]->price; ?></b></h5>
 					<div class="row">
 						<div class="col l6 m6 s12">
 							<button type="button" class="btn waves-effect" style="background: #ac00e6;width: 100%;height: 40px;box-shadow: none;"><span class="fa fa-shopping-cart"></span>&nbsp;Add to Cart</button>

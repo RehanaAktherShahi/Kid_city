@@ -51,6 +51,7 @@
 	<?php for($i=0; $i<6; $i++): ?>
 	<div class="col l2 m3 s6">
 		<!-- card-section start-->
+		
 		<div class="card">
 			<div class="card-image">
 				<img src="<?= base_url('assects/image/F1.jpg'); ?>" class="responsive-img" style="width: 100%;height: 190px;">

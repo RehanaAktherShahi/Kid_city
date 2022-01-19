@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>View Category - KidsCity</title>
+	<title><?= (count($category_detail)) ? $category_detail[0]->category_name. ' Products' : 'Category Not Found.'?> - KidsCity</title>
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
 		body{background: #ffe6ff;}
@@ -35,6 +35,7 @@
 	            foreach($products as $product): ?>
 	<div class="col l2 m3 s6">
 		<!-- card-section start -->
+		<a href="<?= base_url('home/product_detail/'.$product->id); ?>" target="_blank">
 		<div class="card">
 			
 			<div class="card-image">
@@ -56,6 +57,7 @@
 
 		    </div>
 		</div>
+	</a>
 		<!-- card-section end -->
 	</div>
 	<?php endforeach;
