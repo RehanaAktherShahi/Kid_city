@@ -109,4 +109,21 @@ class Main extends CI_Model
 			return $fetch_rec->result();
 		}
     }
+
+    public function fetch_records_by_args_with_order($tablename,$args,$order_format)
+    {
+        extract($order_format);
+        $fetch_rec = $this->db->select()
+             ->from($tablename)
+             ->where($args)
+             ->order_by($order_format['column_name'],$order_format['order'])
+             ->get();
+        if($fetch_rec->num_rows() > 0){
+            return $fetch_rec->result();
+        }
+        else{
+            return $fetch_rec->result();
+        }
+    }
+
 }

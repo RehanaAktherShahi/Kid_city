@@ -29,7 +29,7 @@
 				<div class="col l7 m7 s7">
 					<h6 style="font-size: 15px;color: blue;font-weight: 500;margin-top: 5px;"><?= $cate->category_name; ?></h6>
 					<h6 style="font-size: 13px;color:grey;box-shadow: none;margin top: 5px;">100 Products</h6>
-					<a href="#!" class="btn waves-effect waves-light" style="background: #09aeae;">View More</a>
+					<a href="<?= base_url('home/category_products/'.$cate->id); ?>" class="btn waves-effect waves-light" style="background: #09aeae;">View More</a>
 				</div>
 				<div class="col l5 m5 s5">
 					<img src="<?= base_url().'uploads/category_image/'.$cate->image; ?>" class="responsive-img" style="border:none solid rgba(0,0,0,0.1);width: 100%;height: 90px; margin-top: 10px;">

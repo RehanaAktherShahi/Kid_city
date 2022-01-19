@@ -33,9 +33,62 @@ class Home extends CI_Controller
 		$this->load->view('home/my_cart');
 	}
 	
-	public function category()
+	public function category_products($id = "")
 	{
-		$this->load->view('home/view_category');
+		$args = [
+			'category_id' => $id
+		];
+		$data['products'] = $this->cm->fetch_records_by_args('ms_products',$args);
+		$args = [
+			'id' => $id
+		];
+		$data['category_detail'] = $this->cm->fetch_records_by_args('ms_categories',$args);
+		$this->load->view('home/view_category',$data);
+	}
+	public function product_filter($id, $order)
+	{
+		if($order == "default")
+		{
+			$order_format = [
+				'column_name' => 'id',
+				'order'       => 'desc'
+
+			];
+		}
+		else if($order == "best_metch"){
+			$order_format = [
+				'column_name' => 'count_sales',
+				'order'       => 'desc'
+			];
+		}
+		else if($order == "lowest_price"){
+			$order_format = [
+				'column_name' => 'price',
+				'order'       => 'asc'
+			];
+		}
+		else if($order == "highest_price"){
+			$order_format = [
+				'column_name' => 'price',
+				'order'       => 'desc'
+			];
+		}
+		else{
+			$order_format = [
+				'column_name' => 'id',
+				'order'       => 'desc'
+			];
+		}
+
+		$args = [
+			'category_id' => $id
+		];
+		$data['products'] = $this->cm->fetch_records_by_args_with_order('ms_products',$args,$order_format);
+		$args = [
+			'id' => $id
+		];
+		$data['category_detail'] = $this->cm->fetch_records_by_args('ms_categories',$args);
+		$this->load->view('home/view_category',$data);
 	}
 	public function product_detail()
 	{
