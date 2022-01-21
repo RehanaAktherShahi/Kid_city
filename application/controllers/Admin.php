@@ -425,6 +425,31 @@ class Admin extends CI_Controller
 			return redirect('admin/manage_products');
 		}
 	}
+
+	public function change_product_status($id,$status)
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			$args = [
+				'id' => $id
+			];
+
+			$data = [
+				'status' => $status
+			];
+			$result = $this->cm->update_records_by_args('ms_products',$data,$args);
+			if($result == true){
+				$this->session->set_flashdata('success', 'Congratulation ! Product Status Update Successfully.' );
+			}
+			else{
+				$this->session->set_flashdata('error', 'Fail ! Product Status Update.' );
+			}
+			return redirect('admin/manage_products');
+		}
+	}
 }
 
 ?>
