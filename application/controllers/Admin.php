@@ -399,6 +399,32 @@ class Admin extends CI_Controller
 			$this->load->view('admin/manage_products',$data);
 		}
 	}
+
+	public function delete_product($id = 0)
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			$args = [
+				'id' => $id
+			];
+			$product = $this->cm->fetch_records_by_args('ms_products',$args);
+			// delete image in folder
+			unlink('uploads/product_image/'.$product[0]->image);
+			// delete image in folder
+			$result = $this->cm->
+			delete_records_by_args('ms_products',$args);
+			if($result == true){
+				$this->session->set_flashdata('success', 'Congratulation ! Product Delete Successfully.' );
+			}
+			else{
+				$this->session->set_flashdata('error', 'Fail ! Product Delete.' );
+			}
+			return redirect('admin/manage_products');
+		}
+	}
 }
 
 ?>
