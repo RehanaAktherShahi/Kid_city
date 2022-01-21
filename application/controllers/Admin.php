@@ -450,6 +450,60 @@ class Admin extends CI_Controller
 			return redirect('admin/manage_products');
 		}
 	}
+
+	public function filter_product($filter)
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			if($filter == 'new_product'){
+				$order = [
+					'column_name' => 'id',
+					'order'		 => 'desc'
+				];
+
+			}
+			else if($filter == 'old_product'){
+				$order = [
+					'column_name' => 'id',
+					'order'		 => 'asc'
+				];
+
+			}
+			else if($filter == 'highest_price'){
+				$order = [
+					'column_name' => 'price',
+					'order'		 => 'desc'
+				];
+
+			}
+			else if($filter == 'lowest_price'){
+				$order = [
+					'column_name' => 'price',
+					'order'		 => 'asc'
+				];
+
+			}
+			else{
+				$order = [
+					'column_name' => 'id',
+					'order'		 => 'desc'
+				];
+
+			}
+			// create pagination
+			$config['base_url'] = base_url('admin/filter_product/'.$filter);
+			$config['per_page'] = 10;
+			$config['total_rows'] = $this->db->count_all('ms_products');
+			$this->load->library('pagination',$config);
+			// create pagination
+			$data['products'] = $this->cm->fetch_all_records_with_pagination('ms_products',$order,$config['per_page'],$this->uri->segment(4));
+			$this->load->view('admin/manage_products',$data);
+			
+		}
+	}
 }
 
 ?>
