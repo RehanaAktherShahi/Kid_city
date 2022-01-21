@@ -504,6 +504,34 @@ class Admin extends CI_Controller
 			
 		}
 	}
+
+	public function search_product()
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			$args = [
+				'product_title' => $this->input->post('product_name')
+			];
+			$order = [
+				'column_name' => 'id',
+				'order'  => 'desc'
+			];
+
+			// create pagination
+			$config['base_url'] = base_url('admin/search_product/');
+			$config['per_page'] = 10;
+			$config['total_rows'] = count($this->cm->fetch_records_by_args_with_like('ms_products',$args));
+			$this->load->library('pagination',$config);
+			// create pagination
+
+			$data['products'] = $this->cm->fetch_records_by_like_with_pagination('ms_products',$args,$order,$config['per_page'],$this->uri->segment(3));
+			$this->load->view('admin/manage_products',$data);
+		}
+	}
+
 }
 
 ?>

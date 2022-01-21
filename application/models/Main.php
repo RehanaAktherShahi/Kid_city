@@ -154,5 +154,22 @@ class Main extends CI_Model
         }
     }
 
+    public function fetch_records_by_like_with_pagination($tablename,$args,$order_format,$limit,$offset)
+    {
+        extract($order_format);
+        $fetch_rec = $this->db->select()
+                 ->from($tablename)
+                 ->like($args)
+                 ->order_by($order_format['column_name'],$order_format['order'])
+                 ->limit($limit,$offset)
+                 ->get();
+        if($fetch_rec->num_rows() > 0){
+            return $fetch_rec->result();
+        }
+        else{
+            return $fetch_rec->result();
+        }
+    }
+
 
 }
