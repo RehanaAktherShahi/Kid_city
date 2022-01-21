@@ -532,6 +532,83 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function edit_product($id = 0)
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			$args = [
+				'id' => $id
+			];
+			$data['categories'] = $this->cm->fetch_all_records('ms_categories','desc','limit');
+			$data['product'] = $this->cm->fetch_records_by_args('ms_products',$args);
+			$this->load->view('admin/edit_product',$data);
+		}
+	}
+
+	public function update_product($id)
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			$config = [
+				'upload_path' => './uploads/product_image',
+				'allowed_types' => 'jpg|jpeg|png|gif'
+			];
+			$this->load->library('upload',$config);
+			//check image
+			if($_FILES['product_image']['name'] == ""){
+
+			}
+			else{
+				$args = [
+					'id'  => $id
+				];
+				$old_data = $this->cm->fetch_records_by_args('ms_products',$args);
+				//delete old image
+				unlink('uploads/product_image/'.$old_data[0]->image);
+				//delete old image
+				$this->upload->do_upload('product_image');
+			    $img = $this->upload->data('file_name');
+			    $data['image'] = $img;
+			}
+			
+			$data['product_title'] = $this->input->post('product_title');
+			$data['category_id'] = $this->input->post('category_id');
+			$data['short_description'] = $this->input->post('short_desc');
+			$data['color'] = $this->input->post('color');
+			$data['size'] = $this->input->post('size');
+			$data['price'] = $this->input->post('price');
+			if($data['product_title'] == "" && $data['category_id'] == "" && $data['price'] == "")
+			{
+				$this->session->set_flashdata('error', 'Please Enter Required Details.');
+			}
+			else
+			{
+			    $args = [
+				'id' => $id
+			    ];
+
+			    $result = $this->cm->update_records_by_args('ms_products',$data,$args);
+				if($result == true)
+				{
+					$this->session->set_flashdata('success', 'Congratulation ! Product Update Successfully.' );
+				}
+				else{
+					$this->session->set_flashdata('error','Fail ! Product Update.');
+				}
+
+			}
+
+			
+			return redirect('admin/edit_product/'.$id);
+		}
+	}
+
 }
 
 ?>
