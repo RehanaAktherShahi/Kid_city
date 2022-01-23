@@ -113,6 +113,14 @@ class Home extends CI_Controller
 	{
 		$this->load->view('home/my_orders');
 	}
+	public function get_product_details($product_id = 0)
+	{
+		$args = [
+			'id'  => $product_id
+		];
+		$data['product'] = $this->cm->fetch_records_by_args('ms_products',$args);
+		$this->load->view('home/view_product_details_modal',$data);
+	}
 	
 }
 
