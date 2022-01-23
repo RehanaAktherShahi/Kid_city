@@ -121,6 +121,65 @@ class Home extends CI_Controller
 		$data['product'] = $this->cm->fetch_records_by_args('ms_products',$args);
 		$this->load->view('home/view_product_details_modal',$data);
 	}
+
+	public function add_to_cart($product_id)
+	{
+		if ($this->session->userdata('session_id') == "") {
+			$user_session_id = [
+				'session_id' => rand(9999,999999)
+			];
+			$this->session->set_userdata($user_session_id);
+		}
+		else{
+			//$session_id = $this->session->userdata('session_id');
+		}
+		$args = [
+			'id' => $product_id
+		];
+		$product_details = $this->cm->fetch_records_by_args('ms_products',$args);
+
+		$args = [
+			'product_id'  => $product_id,
+			'session_id'  => $this->session->userdata('session_id'),
+		];
+		$check_product = $this->cm->fetch_records_by_args('ms_carts',$args);
+		if(count($check_product)){
+			$old_qty = $check_product[0]->quantity;
+			$new_qty = $old_qty + 1;
+			$args = [
+				'id' => $check_product[0]->id
+			];
+			$data = [
+				'quantity'  => $new_qty
+			];
+			$result = $this->cm->update_records_by_args('ms_carts',$data,$args);
+			if($result == true){
+				echo "1";
+			}
+			else{
+				echo "0";
+			}
+		}
+		else{
+			$data = [
+			'product_id' => $product_details[0]->id,
+			'session_id' => $this->session->userdata('session_id'),
+			'product_name' => $product_details[0]->product_title,
+			'quantity' => '1',
+			'rate' => $product_details[0]->price
+			];
+
+			$result = $this->cm->insert_data('ms_carts',$data);
+			if($result == true){
+				echo "1";
+			}
+			else{
+				echo "0";
+			}
+		}
+
+
+	}
 	
 }
 

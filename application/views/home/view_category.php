@@ -51,7 +51,7 @@
 			</div>
 			<div class="card-content" style="padding: 3px;">
 				<center>
-				     <a href="#!" class="btn btn-flat btn-floating waves-effect"><span class="fa fa-shopping-cart"></span></a>
+				     <a href="#!" class="btn btn-flat btn-floating waves-effect" onclick="add_to_cart('<?= $product->id; ?>');"><span class="fa fa-shopping-cart"></span></a>
 				     <a href="#!" class="btn btn-flat btn-floating waves-effect" onclick="view_product_details('<?= $product->id; ?>')"><span class="fa fa-eye"></span></a>
 			    </center>
 

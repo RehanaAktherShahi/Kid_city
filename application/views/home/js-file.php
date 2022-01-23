@@ -55,4 +55,34 @@
 			}
 		});
 	}
+	// add to cart script start
+	function add_to_cart(product_id)
+	{
+		$.ajax({
+			type:'ajax',
+		
+			method:'GET',
+			url:'<?= base_url('home/add_to_cart/'); ?>'+product_id,
+			beforeSend:function(data){
+				$('#preloader').modal('open');
+				$('#preloader_heading').text('Product Add In Your Cart.');
+			},
+			success:function(data){
+				$('#preloader').modal('close');
+				if(data == "1"){
+					M.toast({html:'Product Successfully Add  In Cart.'});
+					calculate_carts_products();
+				}
+				else{
+					M.toast({html:'Product Not Add  In Cart.'});
+				}
+				
+			},
+			error:function(){
+				alert('Error ! Add  To Cart.');
+			}
+		});
+	}
+	// add to cart script end
+
 	</script>
