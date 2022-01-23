@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Cart - KidsCity</title>
+	<title>Cart(<?= count($products); ?>) - KidsCity</title>
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
 		body{background: #ffe6ff;}
@@ -14,43 +14,70 @@
 <body>
 <!-- body section start -->
 <?php $this->load->view('home/header'); ?>
-
 <!-- cart section start -->
 <div class="row" style="margin-bottom: 0px;margin-top: 10px;">
+	<?php if($msg = $this->session->flashdata('success')): ?>
+	<!-- message section -->
+	<div class="card">
+		<div class="card-content" style="padding: 10px;padding-left: 15px;">
+			<h6 style="font-weight: 500;font-size: 15px;margin-top: 5px;"><span class="fa fa-check-circle green-text"></span>&nbsp;<?= $msg; ?></h6>
+		</div>
+	</div>
+	<!-- message section -->
+	<?php endif; ?>
+
+	<?php if($msg = $this->session->flashdata('error')): ?>
+	<!-- message section -->
+	<div class="card">
+		<div class="card-content" style="padding: 10px;padding-left: 15px;">
+			<h6 style="font-weight: 500;font-size: 15px;margin-top: 5px;"><span class="fa fa-exclamation-triangle red-text"></span>&nbsp;<?= $msg; ?></h6>
+		</div>
+	</div>
+	<!-- message section -->
+	<?php endif; ?>
 	<div class="col l8 m7 s12">
 		<!-- card section start -->
 		<div class="card">
 		<div class="card-content" style="padding: 10px; border-bottom: 1px solid rgba(0,0,0,0.1);">
-			<h5 style="font-size: 20px;margin-top: 5px;">My Cart</h5>
+			<h5 style="font-size: 20px;margin-top: 5px;">My Cart(<?= count($products); ?>)</h5>
 		</div>
 		<div class="card-content">
-		<?php for($i=0; $i<5; $i++): ?>
+		<?php if(count($products)):
+		foreach($products as $pro):
+		$product_detail = get_product_detail($pro->product_id); ?>
 		<div class="row">
 			<div class="col 13 m3 s12">
-				<img src="<?= base_url('assects/image/F1.jpg'); ?>" class="responsive-img">
+				<img src="<?= base_url().'uploads/product_image/'.$product_detail[0]->image; ?>" class="responsive-img">
 				<!-- quantity form start -->
 				<ul id="quantity_form">
 					<li>
-						<button type="button" class="btn btn-floating"  style="background: #ac00e6;box-shadow: none;">-
+						<button type="button" class="btn btn-floating" onclick="update_quantity('sub','<?= $pro->product_id; ?>','<?= $pro->id; ?>')"   style="background: #ac00e6;box-shadow: none;">-
 						</button>
 					</li>
-					<input type="text" name="" id="input-box" value="5" readonly>
+					<input type="text" name="quantity_<?= $pro->id; ?>" id="input-box" value="<?= $pro->quantity; ?>" readonly>
 					<li>
-						<button type="button" class="btn btn-floating"  style="background: #ac00e6;box-shadow: none;">+	
+						<button type="button" class="btn btn-floating" onclick="update_quantity('add','<?= $pro->product_id; ?>','<?= $pro->id; ?>')"   style="background: #ac00e6;box-shadow: none;">+	
 						</button>
 					</li>
 				</ul>
 				<!-- quantity form end -->
 			</div>
 			<div class="col 19 m9 s12">
-				<h6 style="font-size: 15px;font-weight: 500;">Product Name</h6>
-				<h5 style="font-size: 20px;"><b><span style="font-weight: 800;font-size: 20px;"> &#2547; </span>&nbsp;500</b></h5>
-				<h6 style="font-size: 14px;color: silver;">1 item X 1</h6>
-				<a href="" class="btn btn-flat">View Item</a>
-				<a href="" class="btn btn-flat">Remove Item</a>
+				<h6 style="font-size: 15px;font-weight: 500;"><?= $pro->product_name; ?></h6>
+				<h5 style="font-size: 20px;"><b><span style="font-weight: 800;font-size: 20px;"> &#2547; </span>&nbsp;<?php $calculate =  $pro->quantity * $pro->rate;
+				echo number_format($calculate); ?></b></h5>
+				<h6 style="font-size: 14px;color: silver;"><?= $pro->quantity; ?> Item X <?= number_format($pro->rate); ?></h6>
+				<a href="<?= base_url('home/product_detail/'.$pro->product_id); ?>" class="btn btn-flat" target="_blank">View Item</a>
+				<a href="<?= base_url('home/remove_product/'.$pro->product_id); ?>" class="btn btn-flat">Remove Item</a>
 			</div>
 		</div>
-		<?php endfor; ?>
+		<?php endforeach;
+		else: ?>
+			<center>
+				<h3><span class="fa fa-shopping-cart" style="color: #663300;"></span></h3>
+				<h6 style="font-size: 14px;font-weight: 500;">Your Cart Is Empty ? <a href="<?= base_url('index'); ?>"> Start Shopping Now</a></h6>
+			</center>
+		<?php endif; ?>
 		</div>
 		</div>
 <!-- card section end -->

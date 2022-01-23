@@ -27,5 +27,16 @@ function get_category_details($id)
 		   	return $fetch_data->result();
 		   }
 }
+function get_product_detail($id)
+{
+	$CI =& get_instance();
+	$fetch_data = $CI->db->get_where('ms_products',['id'=>$id]);
+	if($fetch_data->num_rows() > 0){
+		return $fetch_data->result();
+	 }
+	else{
+		return $fetch_data->result();
+	}
+}
 
 ?>

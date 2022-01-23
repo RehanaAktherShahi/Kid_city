@@ -30,7 +30,66 @@ class Home extends CI_Controller
 
 	public function carts()
 	{
-		$this->load->view('home/my_cart');
+		$args = [
+			'session_id' => $this->session->userdata('session_id')
+		];
+		$data['products'] = $this->cm->fetch_records_by_args('ms_carts',$args);
+		$this->load->view('home/my_cart',$data);
+	}
+
+	public function remove_product($product_id = 0)
+	{
+		$args = [
+			'product_id' => $product_id,
+			'session_id' => $this->session->userdata('session_id')
+		];
+		$result = $this->cm->delete_records_by_args('ms_carts',$args);
+		if($result == true){
+			$this->session->set_flashdata('success','Product Remove Successfully.');
+		}
+		else{
+			$this->session->set_flashdata('error','Product Remove Fail.');
+		}
+		return redirect('home/carts');
+	}
+
+	public function update_quantity($quantity,$type,$product_id)
+	{
+		if($type == "add"){
+
+			$new_qty = $quantity + 1;
+			$args = [
+				'product_id' => $product_id
+			];
+
+			$data = [
+				'quantity' => $new_qty
+			];
+			$result = $this->cm->update_records_by_args('ms_carts',$data,$args);
+		}
+		else{
+			if($quantity > 1 ){
+				$new_qty = $quantity - 1;
+				$args = [
+					'product_id' => $product_id
+				];
+
+				$data = [
+					'quantity' => $new_qty
+				];
+				$result = $this->cm->update_records_by_args('ms_carts',$data,$args);
+				}
+			else{
+				$result = false;
+			}
+			
+		}
+		if($result == true){
+			echo "1";
+		}
+		else{
+			echo "0";
+		}
 	}
 	
 	public function category_products($id = "")

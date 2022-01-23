@@ -85,4 +85,36 @@
 	}
 	// add to cart script end
 
+	//update quantity script start
+	function update_quantity(type,product_id,id)
+	{
+		var qname = "quantity_"+id;
+		 var quantity = $('input[name="'+qname+'"]').val();
+		
+		$.ajax({
+			type:'ajax',
+			method:'GET',
+			url:'<?= base_url('home/update_quantity/'); ?>'+quantity+'/'+type+'/'+product_id,
+			beforeSend:function(data){
+				$('#preloader').modal('open');
+				$('#preloader_heading').text('Update Product Quantity.');
+			},
+			success:function(data){
+				$('#preloader').modal('close');
+				if(data == "1"){
+					M.toast({html:'Product Quantity Update Successfully.'});
+					location.reload();
+				}
+				else{
+					M.toast({html:'Product Quantity Update Fail.'});
+				}
+				
+			},
+			error:function(){
+				alert('Error ! Update Quantity.');
+			}
+		});
+	}
+	//update quantity script end
+
 	</script>
