@@ -90,18 +90,33 @@
 		<h5 style="font-size: 20px;margin-top: 5px;">Price Details</h5>
 		</div>
 		<div class="card-content">
-			<h6 style="font-size: 15px;font-weight: 500;margin-top: 0px;border-bottom: 1px dashed silver;padding-bottom: 15px;">Price (5 Items)<span class="right"><span style="font-size: 15px;font-weight: 800;"> &#2547; </span>&nbsp;500 </span>
+			<h6 style="font-size: 15px;font-weight: 500;margin-top: 0px;border-bottom: 1px dashed silver;padding-bottom: 15px;">Price (<?= count($products); ?> Items)<span class="right"><span style="font-size: 15px;font-weight: 800;"> &#2547; </span>&nbsp;
+			<?php if(count($products)):
+					$t_amount = 0;
+					foreach($products as $cpro):
+					$t_amount += ($cpro->quantity * $cpro->rate);
+				endforeach; ?>
+					<?php else:
+					$t_amount = 0;
+				endif;
+				echo ($t_amount > 0) ? number_format($t_amount) : '0'; ?>
+				 </span>
 			</h6>
-			<h5 style="font-size: 20px;font-weight: 500;margin-top: 0px;border-bottom: 1px dashed silver;padding-bottom: 15px;">Total Amount<span class="right" style="font-weight: 800;font-size: 20px;"><span> &#2547; </span>&nbsp;500</span></h5>
+			<h5 style="font-size: 20px;font-weight: 500;margin-top: 0px;border-bottom: 1px dashed silver;padding-bottom: 15px;">Total Amount<span class="right" style="font-weight: 800;font-size: 20px;"><span> &#2547; </span>&nbsp;<?= ($t_amount > 0) ? number_format($t_amount) : '0'; ?></span></h5>
 			<!-- button section start -->
 			<div class="row" style="margin-top: 18px;margin-bottom: 0px;">
-
+				<?php if(count($products)): ?>
 				<div class="col 16 m6 s6">
-					<a href="" class="btn waves-effect waves-light" style="font-size: 12px;text-transform: capitalize;font-weight: 500;width: 100%;background:  #ac00e6;box-shadow: none;height: 40px;">Continue Shopping</a>
+					<a href="<?= base_url('index'); ?>" class="btn waves-effect waves-light" style="font-size: 12px;text-transform: capitalize;font-weight: 500;width: 100%;background:  #ac00e6;box-shadow: none;height: 40px;">Continue Shopping</a>
 				</div>
 				<div class="col 16 m6 s6">
 					<a href="" class="btn waves-effect waves-light" style="font-size: 12px;text-transform: capitalize;font-weight: 500;width: 100%;background: black;box-shadow: none;height: 40px;">Place Order</a>
 				</div>
+				<?php else: ?>
+					<div class="col 112 m12 s12">
+						<a href="<?= base_url('home/index'); ?>" class="btn waves-effect waves-light" style="font-size: 12px;text-transform: capitalize;font-weight: 500;width: 100%;background: black;box-shadow: none;height: 40px;">Continue Shopping</a>
+					</div>
+				<?php endif; ?>
 				
 			</div>
 

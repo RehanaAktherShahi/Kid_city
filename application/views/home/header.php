@@ -41,7 +41,7 @@
 		<!-- search products form end -->
 	</div>
     <div class="col l3 m3 s10">
-    	<h6 style="font-size: 14px;color: white;text-align: center;line-height: 18px;font-weight: 500;margin-top: 25px;padding-top: 25px;"><a href="<?= base_url('home/carts'); ?>" style="color: white;font-size: 14px;color: white;"><span class="fa fa-shopping-cart" style="font-size: 30px;"></span>&nbsp;<br/>0 Items - <span style="font-size: 14px;font-weight: 800"> &#2547; </span>0</a></h6>
+    	<h6 style="font-size: 14px;color: white;text-align: center;line-height: 18px;font-weight: 500;margin-top: 25px;padding-top: 25px;"><a href="<?= base_url('home/carts'); ?>" style="color: white;font-size: 14px;color: white;"><span class="fa fa-shopping-cart" style="font-size: 30px;"></span>&nbsp;<br/><span id="total_products">0</span> Items - <span style="font-size: 14px;font-weight: 800"> &#2547; </span><span id="total_amount">0</span></a></h6>
     </div>
 	</div> 
 	</div>

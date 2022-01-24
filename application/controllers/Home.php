@@ -91,6 +91,28 @@ class Home extends CI_Controller
 			echo "0";
 		}
 	}
+
+	public function calculate_cart_products()
+	{
+		$args = [
+			'session_id' => $this->session->userdata('session_id')
+		];
+		$products = $this->cm->fetch_records_by_args('ms_carts',$args);
+		$cal_amount = 0;
+		if(count($products)){
+			foreach($products as $product){
+				$cal_amount += ($product->rate * $product->quantity);
+			}
+		}
+		else{
+			$cal_amount = 0;
+		}
+		$data = [
+			'total_products' => count($products),
+			'total_amount' =>  ($cal_amount > 0) ? number_format($cal_amount) : '0'
+		];
+		echo json_encode($data);
+	}
 	
 	public function category_products($id = "")
 	{

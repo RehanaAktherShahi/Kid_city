@@ -117,4 +117,30 @@
 	}
 	//update quantity script end
 
+	// calculate carts products script start
+	calculate_carts_products();
+	function calculate_carts_products()
+	{
+		$.ajax({
+			type:'ajax',
+			method:'GET',
+			url:'<?= base_url('home/calculate_cart_products'); ?>',
+			beforeSend:function(data){
+				//$('#preloader').modal('open');
+				//$('#preloader_heading').text('Update Product Quantity.');
+			},
+			success:function(data){
+				//$('#preloader').modal('close');
+				var json_data = JSON.parse(data);
+				$('#total_products').html(json_data.total_products);
+				$('#total_amount').html(json_data.total_amount);
+				
+			},
+			error:function(){
+				alert('Error ! Update Quantity.');
+			}
+		});
+	}
+	// calculate carts products script end
+
 	</script>
