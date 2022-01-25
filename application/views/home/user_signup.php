@@ -40,6 +40,7 @@
 			<!-- card section start -->
 			<div class="card" style="background: #ffffff;">
 				<div class="card-content">
+					<?= form_open('home/user_registerd/'.$page); ?>
 					<center>
 						<h5><span class="fa fa-users"></span></h5>
 						<h6>Create Account</h6>
@@ -60,6 +61,7 @@
 				<button type="submit" class="btn waves-effect" id="btn_register_now" style="background: blue;width: 100%;margin-top: 10px;box-shadow: none;text-transform: capitalize;">Register Now</button>
 				<h6 style="font-size: 14px;color: red;font-weight: 500;text-align: center;">I have already Account</h6>
 				<a href="" class="btn waves-effect" style="background: black;width: 100%;margin-top: 10px;box-shadow: none;text-transform: capitalize;">Sign In</a>
+				<?= form_close(); ?>
 			</div>
 			</div>
             <!-- card section end -->
@@ -77,5 +79,27 @@
 	<!-- footer section end-->
 	<!-- body section end-->
 	<?php $this->load->view('home/js-file'); ?>
+	<!-- custom js -->
+	<script type="text/javascript">
+		//check password script start
+		function check_password()
+		{
+			var password = $('input[name="password"]');
+			var confirm_password = $('input[name="confirm_password"]');
+			if(password.val().length >5){
+				if(password.val() == confirm_password.val() || confirm_password.val() == password.val()){
+					$('#btn_register_now').prop('disabled',false);
+				}
+				else{
+					$('#btn_register_now').prop('disabled',true);
+				}
+			}
+			else{
+				$('#btn_register_now').prop('disabled',true);
+			}
+		}
+		//check password script end
+
+	</script>
 </body>
 </html>

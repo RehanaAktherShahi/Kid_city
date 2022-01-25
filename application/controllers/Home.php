@@ -18,9 +18,49 @@ class Home extends CI_Controller
 		$this->load->view('home/index',$data);
 	}
 
-	public function user_signup()
+	public function user_signup($page = "")
 	{
-		$this->load->view('home/user_signup');
+		$this->load->view('home/user_signup',['page'=>$page]);
+	}
+
+	public function user_registerd($page = "")
+	{
+		$data = [
+			'fullname' => $this->input->post('full_name'),
+			'email' => $this->input->post('email'),
+			'mobile_no' => $this->input->post('mobile'),
+			'password' => $this->input->post('password'),
+			'address' => $this->input->post('address'),
+			'register_date' => date('Y-m-d')
+		];
+		if($data['fullname'] == "" && $data['email'] == "" && $password == ""){
+			$this->session->set_flashdata('error','Please Enter Required Information.');
+			return redirect('home/user_signup/'.$page);
+		}
+		else{
+			$result = $this->cm->insert_data('ms_users',$data);
+			if($result == true){
+			$user_session = [
+				'email' => $data['email'],
+				'password' => $data['password']
+			];
+			$this->session->set_userdata($user_session);
+				if($page == 'cart'){
+					return redirect('home/carts');
+				}
+				else{
+					return redirect('home/dashboard');
+				}
+
+			}
+			
+			else{
+				$this->session->set_flashdata('error','User Register Fail.');
+				return redirect('home/user_signup/'.$page);
+			}
+		}
+		
+		
 	}
 
 	public function user_signin()
@@ -260,6 +300,15 @@ class Home extends CI_Controller
 		}
 
 
+	}
+
+	public function place_order()
+	{
+		$args = [
+			'session_id' => $this->session->userdata('session_id')
+		];
+		$data['products'] = $this->cm->fetch_records_by_args('ms_carts',$args);
+		$this->load->view('home/place_order',$data);
 	}
 	
 }

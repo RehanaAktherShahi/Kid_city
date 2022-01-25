@@ -110,7 +110,7 @@
 					<a href="<?= base_url('index'); ?>" class="btn waves-effect waves-light" style="font-size: 12px;text-transform: capitalize;font-weight: 500;width: 100%;background:  #ac00e6;box-shadow: none;height: 40px;">Continue Shopping</a>
 				</div>
 				<div class="col 16 m6 s6">
-					<a href="" class="btn waves-effect waves-light" style="font-size: 12px;text-transform: capitalize;font-weight: 500;width: 100%;background: black;box-shadow: none;height: 40px;">Place Order</a>
+					<a href="<?= base_url('home/place_order'); ?>" class="btn waves-effect waves-light" style="font-size: 12px;text-transform: capitalize;font-weight: 500;width: 100%;background: black;box-shadow: none;height: 40px;">Place Order</a>
 				</div>
 				<?php else: ?>
 					<div class="col 112 m12 s12">
