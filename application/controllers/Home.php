@@ -63,9 +63,35 @@ class Home extends CI_Controller
 		
 	}
 
-	public function user_signin()
+	public function user_signin($page = "")
 	{
-		$this->load->view('home/user_signin');
+		$this->load->view('home/user_signin',['page'=>$page]);
+	}
+
+	public function user_logged_in($page = "")
+	{
+		$args = [
+			'email' => $this->input->post('email'),
+			'password' => $this->input->post('password')
+		];
+		$result = $this->cm->fetch_records_by_args('ms_users',$args);
+		if($result == true){
+			$user_session = [
+				'email'    => $args['email'],
+				'password' => $args['password']
+			];
+			$this->session->set_userdata($user_session);
+			if($page == "cart"){
+				return redirect('home/carts');
+			}
+			else{
+				return redirect('home/dashboard');
+			}
+		}
+		else{
+			$this->session->set_flashdata('error','Your Username & Password Incorrect.');
+			return redirect('home/user_signin/'.$page);
+		}
 	}
 
 	public function carts()

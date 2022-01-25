@@ -41,6 +41,7 @@
 			<!-- card section start -->
 			<div class="card">
 				<div class="card-content">
+					<?= form_open('home/user_logged_in/'.$page); ?>
 					<center>
 						<h5><span class="fa fa-users"></span></h5>
 						<h6>SignIn Account</h6>
@@ -53,6 +54,7 @@
 				<button type="submit" class="btn waves-effect" style="background: blue;width: 100%;margin-top: 10px;box-shadow: none;text-transform: capitalize;">Sign In</button>
 				<h6 style="font-size: 14px;color: red;font-weight: 500;text-align: center;">I don't have an Account</h6>
 				<a href="" class="btn waves-effect" style="background: black;width: 100%;margin-top: 10px;box-shadow: none;text-transform: capitalize;">Create an Account</a>
+				<?= form_close(); ?>
 			</div>
 			</div>
             <!-- card section end -->
