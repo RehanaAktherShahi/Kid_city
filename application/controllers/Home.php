@@ -6,6 +6,12 @@ class Home extends CI_Controller
 		parent::__construct();
 		//main model load
 		$this->load->model('main','cm');
+		//get user details
+		$args = [
+			'email' => $this->session->userdata('email'),
+			'password' => $this->session->userdata('password')
+		];
+		$this->user_profile = $this->cm->fetch_records_by_args('ms_users',$args);
 	}
 
 	public function index()
@@ -335,6 +341,118 @@ class Home extends CI_Controller
 		];
 		$data['products'] = $this->cm->fetch_records_by_args('ms_carts',$args);
 		$this->load->view('home/place_order',$data);
+	}
+
+	public function save_temp_address($user_id = 0)
+	{
+		if($this->session->userdata('email') == "" && $this->session->userdata('password') == ""){
+			return redirect('home/user_signin');
+		}
+		else{
+			$data = [
+				'user_id' => $user_id,
+				'address' => $this->input->post('shipping_address')
+			];
+			if($data['user_id'] == "" && $data['address'] == "")
+			{
+				$this->session->set_flashdata('error','Please Enter Shipping Address.');
+				return redirect('home/place_order');
+			}
+			else{
+				$result = $this->cm->insert_data('ms_temp_address',$data);
+				if($result == true){
+					$this->session->set_flashdata('success','Shipping Address Save Successfully.');
+					return redirect('home/place_order');
+				}
+				else{
+					$this->session->set_flashdata('error','Fail ! Save Shipping Address.');
+					return redirect('home/place_order');
+				}
+			}
+		}
+	}
+
+	public function complete_purchased()
+	{
+		if($this->session->userdata('email') == "" && $this->session->userdata('password') == ""){
+			return redirect('home/user_signin');
+		}
+		else{
+			$args = [
+			'session_id' => $this->session->userdata('session_id')
+			];
+			$products = $this->cm->fetch_records_by_args('ms_carts',$args);
+			$user = $this->user_profile;
+			//get shipping address
+			$args = [
+				'user_id' => $user[0]->id
+			];
+			$temp_address = $this->cm->fetch_records_by_args('ms_temp_address',$args);
+			//get shipping address
+			$total_quantity = 0;
+			$total_amount = 0;
+			if(count($products)){
+				foreach($products as $pro){
+					$total_quantity += $pro->quantity;
+					$total_amount += ($pro->quantity * $pro->rate);
+				}
+			}
+			else{
+				$total_quantity =0;
+			}
+
+			$data = [
+				'user_id' => $user[0]->id,
+				'user_name' => $user[0]->fullname,
+				'total_quantity' => $total_quantity,
+				'total_amount' => $total_amount,
+				'order_date' => date('Y-m-d'),
+				'shipping_address' => $temp_address[0]->address,
+				'order_status' => 'pending'
+
+			];
+
+			$order_id = $this->cm->insert_data_with_last_id('ms_orders',$data);
+
+			//insert order prodects
+			if(count($products)){
+				foreach($products as $pro){
+					$result = $this->db->insert('ms_order_products',[
+						'order_id' => $order_id,
+						'product_id' => $pro->product_id,
+						'product_name' => $pro->product_name,
+						'quantity' => $pro->quantity,
+						'rate' => $pro->rate
+						//'image' => $pro->image
+					]);
+				}
+			}
+			else{
+				
+			}
+			//insert order prodects
+
+			$args = [
+				'session_id' => $this->session->userdata('session_id')
+			];
+
+			$result = $this->cm->delete_records_by_args('ms_carts',$args);
+
+			$args = [
+				'user_id' => $user[0]->id
+			];
+
+			$result = $this->cm->delete_records_by_args('ms_temp_address',$args);
+			if($result == true){
+				$this->session->set_flashdata('success','Congratulation ! Your Order Placed Successfully.');
+			}
+			else{
+				$this->session->set_flashdata('error','Fail ! Your Order Place.');
+			}
+			return redirect('home/dashboard');
+
+
+		}
 	}
 	
 }

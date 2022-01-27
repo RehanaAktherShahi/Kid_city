@@ -171,5 +171,16 @@ class Main extends CI_Model
         }
     }
 
+    public function insert_data_with_last_id($tablename,$data)
+    {
+        $insert_rec = $this->db->insert($tablename,$data);
+        if($this->db->affected_rows() > 0){
+            return $this->db->insert_id();
+        }
+        else{
+            return 0;
+        }
+    }
+
 
 }
