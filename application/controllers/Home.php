@@ -259,7 +259,21 @@ class Home extends CI_Controller
 
 	public function dashboard()
 	{
-		$this->load->view('home/dashboard');
+		if($this->session->userdata('email') == "" && $this->session->userdata('password') == ""){
+			return redirect('home/user_signin');
+		}
+		else{
+			$user = $this->user_profile;
+			$args = [
+				'user_id' => $user[0]->id
+			];
+			$data['orders'] = $this->cm->fetch_records_by_args('ms_orders',$args);
+			$args = [
+				'session_id' => $this->session->userdata('session_id')
+			];
+			$data['cart_products'] = $this->cm->fetch_records_by_args('ms_carts',$args);
+		$this->load->view('home/dashboard',$data);
+		}
 	}
 
 	public function my_orders()
@@ -450,7 +464,6 @@ class Home extends CI_Controller
 				$this->session->set_flashdata('error','Fail ! Your Order Place.');
 			}
 			return redirect('home/dashboard');
-
 
 		}
 	}

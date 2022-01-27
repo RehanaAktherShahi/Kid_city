@@ -43,12 +43,12 @@
 					</div>
 					<div class="col l8 m8 s8">
 						<h6 class="right-align" style="color: white;font-size: 14px;">My Cart</h6>
-						<h4 class="right-align" style="margin-top: 0px;color: white;"><b>50</b></h4>
+						<h4 class="right-align" style="margin-top: 0px;color: white;"><b><?= count($cart_products); ?></b></h4>
 					</div>
 				</div>	
 				</div>
 				<div class="card-action">
-					<a  style="color: white;" href="">View Cart</a>
+					<a  style="color: white;" href="<?= base_url('home/carts'); ?>">View Cart</a>
 				</div>
 			</div>
 			<!-- card section -->
@@ -64,12 +64,12 @@
 					</div>
 					<div class="col l8 m8 s8">
 						<h6 class="right-align" style="color: white;font-size: 14px;">My Order's</h6>
-						<h4 class="right-align" style="margin-top: 0px;color: white;"><b>50</b></h4>
+						<h4 class="right-align" style="margin-top: 0px;color: white;"><b><?= count($orders); ?></b></h4>
 					</div>
 				</div>	
 				</div>
 				<div class="card-action">
-					<a  style="color: white;" href="">View Order's</a>
+					<a  style="color: white;" href="<?= base_url('home/my_orders'); ?>">View Order's</a>
 				</div>
 			</div>
 			<!-- card section -->
