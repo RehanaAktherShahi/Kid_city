@@ -17,8 +17,15 @@
 	</div>
 	<!-- my account dropdown -->
 	<ul class="dropdown-content" id="my_account_dropdown">
+		<?php if($this->session->userdata('email') == "" && $this->session->userdata('password') == ""): ?>
 		<li><a href="<?= base_url('home/user_signup'); ?>" class="waves-effect"><span class="fa fa-user-plus"></span>&nbsp;Register</a></li>
 		<li><a href="<?= base_url('home/user_signin'); ?>" class="waves-effect"><span class="fa fa-sign-in-alt"></span>&nbsp;Login</a></li>
+		<?php else: ?>
+			<li><a href="<?= base_url('home/dashboard'); ?>" class="waves-effect"><span class="fa fa-home"></span>&nbsp;Dashboard</a></li>
+			<li><a href="<?= base_url('home/carts'); ?>" class="waves-effect"><span class="fa fa-shopping-cart"></span>&nbsp;Carts</a></li>
+			<li><a href="<?= base_url('home/my_orders'); ?>" class="waves-effect"><span class="fa fa-truck"></span>&nbsp;My Order's</a></li>
+			<li><a href="<?= base_url('home/logout'); ?>" class="waves-effect"><span class="fa fa-sign-out-alt"></span>&nbsp;Logout</a></li>
+		<?php endif; ?>
 	</ul>
 	<!-- my account dropdown -->
 	<!-- topbar section end-->

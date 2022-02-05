@@ -53,7 +53,7 @@
 				<input type="password" name="password" id="input_box" placeholder="XXXXXXXX">
 				<button type="submit" class="btn waves-effect" style="background: blue;width: 100%;margin-top: 10px;box-shadow: none;text-transform: capitalize;">Sign In</button>
 				<h6 style="font-size: 14px;color: red;font-weight: 500;text-align: center;">I don't have an Account</h6>
-				<a href="" class="btn waves-effect" style="background: black;width: 100%;margin-top: 10px;box-shadow: none;text-transform: capitalize;">Create an Account</a>
+				<a href="<?= base_url('home/user_signup'); ?>" class="btn waves-effect" style="background: black;width: 100%;margin-top: 10px;box-shadow: none;text-transform: capitalize;">Create an Account</a>
 				<?= form_close(); ?>
 			</div>
 			</div>

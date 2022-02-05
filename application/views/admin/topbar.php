@@ -45,7 +45,7 @@
 				<ul>
 					<li><a href="">Pending Orders</a></li>
 					<li><a href="">Delivered Orders</a></li>
-					<li><a href="">Manage Orders</a></li>
+					<li><a href="<?= base_url('admin/manage_orders'); ?>">Manage Orders</a></li>
 				</ul>
 			</div>
 		</li>

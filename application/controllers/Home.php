@@ -472,6 +472,13 @@ class Home extends CI_Controller
 
 		}
 	}
+
+	public function logout()
+	{
+		$this->session->unset_userdata('email');
+		$this->session->unset_userdata('password');
+		return redirect('home/user_signin');
+	}
 	
 }
 

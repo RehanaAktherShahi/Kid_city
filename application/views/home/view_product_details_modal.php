@@ -18,10 +18,10 @@
 					<h5><b><span class="left" style="font-weight: 800;font-size: 25px;"> &#2547;</span>&nbsp;<?= $product[0]->price; ?></b></h5>
 					<div class="row">
 						<div class="col l6 m6 s12">
-							<button type="button" class="btn waves-effect" style="background: red;width: 100%;height: 40px;box-shadow: none;"><span class="fa fa-shopping-cart"></span>&nbsp;Add to Cart</button>
+							<a href="<?= base_url('home/carts'); ?>" class="btn waves-effect" style="background: red;width: 100%;height: 40px;box-shadow: none;"><span class="fa fa-shopping-cart"></span>&nbsp;Add to Cart</a>
 						</div>
 						<div class="col l6 m6 s12">
-							<button type="button" class="btn waves-effect waves-light" style="background: black;width: 100%;height: 40px;box-shadow: none;"><span class="fa fa-cube"></span>&nbsp;Buy Now</button>
+							<a href="<?= base_url('home/place_order'); ?>" class="btn waves-effect waves-light" style="background: black;width: 100%;height: 40px;box-shadow: none;"><span class="fa fa-cube"></span>&nbsp;Buy Now</a>
 						</div>
 
 					</div>

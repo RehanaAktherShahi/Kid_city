@@ -60,7 +60,7 @@
 				<textarea name="address" placeholder="Enter Your Address"></textarea>
 				<button type="submit" class="btn waves-effect" id="btn_register_now" style="background: blue;width: 100%;margin-top: 10px;box-shadow: none;text-transform: capitalize;">Register Now</button>
 				<h6 style="font-size: 14px;color: red;font-weight: 500;text-align: center;">I have already Account</h6>
-				<a href="" class="btn waves-effect" style="background: black;width: 100%;margin-top: 10px;box-shadow: none;text-transform: capitalize;">Sign In</a>
+				<a href="<?= base_url('home/user_signin'); ?>" class="btn waves-effect" style="background: black;width: 100%;margin-top: 10px;box-shadow: none;text-transform: capitalize;">Sign In</a>
 				<?= form_close(); ?>
 			</div>
 			</div>
