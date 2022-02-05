@@ -5,13 +5,18 @@
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
 		body{background: #f2f2f2;}
+
 		
 		.btn-flat:hover{background: #996633;color: white;}
+		#search_order{display: flex;}
+		#search_order li:first-child{width: 250px;}
+		#input_box{border: 1px solid silver;box-shadow: none;box-sizing: border-box;padding-left: 10px;padding-right: 10px;height: 40px;border-radius: 0px;}
 		.action_dropdown{width: 120px!important}
 		.action_dropdown li a{color: grey;font-size: 14px;font-weight: 500;}
 		#pagination a{color: black;font-weight: 500;border: 1px solid black;padding: 5px 10px;margin-left: 5px;}
 		#pagination strong{font-weight: 500;border: 1px solid black;padding: 5px 10px;margin-left: 5px;background: black;color: white;}
 		table tr td{font-size: 14px;padding: 5px;}
+		}
 
 	</style>
 </head>
@@ -23,6 +28,26 @@
 	<div class="card">
 		<div class="card-content" style="border-bottom: 1px solid silver;padding: 10px;">
 			<h5>Manage Order's</h5>
+			<!-- category search form start -->
+			<div class="row">
+				<div class="col l6 m6 s12">
+					<?= form_open('admin/search_orders'); ?>
+					<ul id="search_order">
+						<li>
+							<input type="text" name="order_id" id ="input_box" placeholder="Enter Order Id" value="<?= set_value('order_id'); ?>" required> 
+						</li>
+						<li>
+							<button type="submit" class="btn waves-effect waves-light" style="background: black;box-shadow: none;text-transform: capitalize;font-weight: 500;height: 40px;">Search Now</button>
+						</li>
+					</ul>
+					<?= form_close(); ?>
+				</div>
+				<div class="col l6 m6 s12">
+					
+					
+				</div>
+			</div>
+			<!-- category search form end -->
 		</div>
 		<div class="card-content" style="padding: 0px;">
 			<table class="table">

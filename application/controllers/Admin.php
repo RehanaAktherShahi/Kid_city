@@ -631,6 +631,33 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function search_orders()
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			$args = [
+				'id' => $this->input->post('order_id')
+			];
+			$order = [
+				'column_name' => 'id',
+				'order'  => 'desc'
+			];
+
+			// create pagination
+			$config['base_url'] = base_url('admin/search_search_orders/');
+			$config['per_page'] = 10;
+			$config['total_rows'] = count($this->cm->fetch_records_by_args_with_like('ms_products',$args));
+			$this->load->library('pagination',$config);
+			// create pagination
+
+			$data['orders'] = $this->cm->fetch_records_by_like_with_pagination('ms_orders',$args,$order,$config['per_page'],$this->uri->segment(3));
+			$this->load->view('admin/manage_orders',$data);
+		}
+	}
+
 }
 
 ?>
