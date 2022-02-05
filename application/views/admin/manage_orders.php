@@ -6,7 +6,6 @@
 	<style type="text/css">
 		body{background: #f2f2f2;}
 
-		
 		.btn-flat:hover{background: #996633;color: white;}
 		#search_order{display: flex;}
 		#search_order li:first-child{width: 250px;}
@@ -74,7 +73,7 @@
 							<button type="button" class="btn btn-flat btn-floating dropdown-trigger" data-target = "order_action_<?= $order->id; ?>"><span class="fa fa-ellipsis-v"></span></button>
 						</center>
 						<ul class="dropdown-content action_dropdown" id="order_action_<?= $order->id; ?>">
-						<li><a href="" class="waves-effect">Delete Order</a></li>
+						<li><a href="<?= base_url('admin/order_delete/'.$order->id); ?>" onclick="return confirm('Confirm ! Are You Sure Delete This Order.')" class="waves-effect">Delete Order</a></li>
 						<li><a href="" class="waves-effect">View Order</a></li>
 						
 					</ul>

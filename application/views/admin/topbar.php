@@ -20,7 +20,7 @@
 
 	<!-- side menu section start -->
 	<ul class="sidenav collapsible" id="side_manu">
-		<li><a href="">Dashboard</a></li>
+		<li><a href="<?= base_url('admin/dashboard'); ?>">Dashboard</a></li>
 		<li>
 			<div class="collapsible-header">Categories</div>
 			<div class="collapsible-body">

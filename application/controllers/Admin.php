@@ -647,7 +647,7 @@ class Admin extends CI_Controller
 			];
 
 			// create pagination
-			$config['base_url'] = base_url('admin/search_search_orders/');
+			$config['base_url'] = base_url('admin/search_orders/');
 			$config['per_page'] = 10;
 			$config['total_rows'] = count($this->cm->fetch_records_by_args_with_like('ms_products',$args));
 			$this->load->library('pagination',$config);
@@ -655,6 +655,32 @@ class Admin extends CI_Controller
 
 			$data['orders'] = $this->cm->fetch_records_by_like_with_pagination('ms_orders',$args,$order,$config['per_page'],$this->uri->segment(3));
 			$this->load->view('admin/manage_orders',$data);
+		}
+	}
+
+	public function order_delete($order_id = 0)
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			$args = [
+				'order_id' => $order_id
+			];
+			$result = $this->cm->delete_records_by_args('ms_order_products',$args);
+			$args = [
+				'id' => $order_id
+			];
+			$result = $this->cm->delete_records_by_args('ms_orders',$args);
+			if($result == true)
+			{
+				$this->session->set_flashdata('success','Congratulation ! Order Delete Successfully.');
+			}
+			else{
+				$this->session->set_flashdata('error','Fail ! Order Delete.');
+			}
+			return redirect('admin/manage_orders');
 		}
 	}
 
