@@ -39,4 +39,17 @@ function get_product_detail($id)
 	}
 }
 
+function get_order_products($tablename,$order_id)
+{
+	$CI =& get_instance();
+	$fetch_data = $CI->db->get_where($tablename,['order_id'=>$order_id]);
+	if($fetch_data->num_rows() > 0){
+		return $fetch_data->result();
+	 }
+	else{
+		return $fetch_data->result();
+	}
+}
+
+
 ?>

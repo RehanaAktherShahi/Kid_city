@@ -278,7 +278,12 @@ class Home extends CI_Controller
 
 	public function my_orders()
 	{
-		$this->load->view('home/my_orders');
+		$user = $this->user_profile;
+		$args = [
+			'user_id' => $user[0]->id
+		];
+		$data['orders'] = $this->cm->fetch_records_by_args('ms_orders',$args);
+		$this->load->view('home/my_orders',$data);
 	}
 	public function get_product_details($product_id = 0)
 	{
