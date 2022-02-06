@@ -722,6 +722,31 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function change_order_status($order_id)
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			$args = [
+				'id' => $order_id
+			];
+			
+			$data = [
+				'order_status' => $this->input->post('status')
+			];
+			$result = $this->cm->update_records_by_args('ms_orders',$data,$args);
+			if($result == true){
+				$this->session->set_flashdata('success','Congratulation ! Order Status Update Successfully.');
+			}
+			else{
+				$this->session->set_flashdata('error','Fail ! Order Status Update.');
+			}
+			return redirect('admin/view_order/'.$order_id);
+		}
+	}
+
 }
 
 ?>

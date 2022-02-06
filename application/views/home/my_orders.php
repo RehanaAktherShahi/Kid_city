@@ -28,12 +28,12 @@
 				<?php if(count($order_items)): 
 					foreach($order_items as $ord_item): ?>
 				<div class="row" style="margin-bottom: 0px;">
-					<div class="col l2 m3 s12">
-						<img src="<?= base_url().'uploads/product_image/'.$ord_item->image; ?>" class="responsive-img" style="width: 100px;height: 100px;">
-					</div>
 					<div class="col l5 m5 s12">
 						<h5 style="font-size: 20px;font-weight: 500;"><?= $ord_item->product_name; ?></h5>
 						<h6 style="font-size: 14px;color: grey;margin-top: 0px;">Quantity: <?= $ord_item->quantity; ?></h6>
+					</div>
+					<div class="col l2 m3 s12">
+						
 					</div>
 					<div class="col l5 m4 s12">
 						<h5 style="font-size: 20px;font-weight: 500;"><span style="font-weight: 800;font-size: 20px;"> &#2547; </span>&nbsp;<?= $ord_item->rate; ?></h5>

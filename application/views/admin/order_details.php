@@ -57,6 +57,7 @@
 			<h5 style="margin-top: 5px;font-size: 20px;">Order Status</h5>
 		</div>
 		<div class="card-content" style="padding: 10px;">
+			<?= form_open('admin/change_order_status/'.$order_details[0]->id); ?>
 			<h6 style="font-size: 14px;font-weight: 500;color: grey;">Order Status</h6>
 			<select name="status">
 				<?php if($order_details[0]->order_status == 'Pending'): ?>
@@ -90,6 +91,7 @@
 			</select>
 			<button type="submit" class="btn waves-effect waves-light" style="background: black;text-transform: capitalize;">Update Status</button>
 			<a href="<?= base_url('admin/print_label/'.$order_details[0]->id); ?>" target="_blank" class="btn waves-effect waves-light" style="background: black;text-transform: capitalize;">Print Lable</a>
+			<?= form_close(); ?>
 		</div>
 	</div>
 </div>

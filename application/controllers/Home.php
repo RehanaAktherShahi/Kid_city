@@ -268,12 +268,25 @@ class Home extends CI_Controller
 				'user_id' => $user[0]->id
 			];
 			$data['orders'] = $this->cm->fetch_records_by_args('ms_orders',$args);
+
 			$args = [
 				'session_id' => $this->session->userdata('session_id')
 			];
 			$data['cart_products'] = $this->cm->fetch_records_by_args('ms_carts',$args);
-		$this->load->view('home/dashboard',$data);
+
+			$args = [
+				'user_id' => $user[0]->id,
+				'order_status' => 'Delivered'
+			];
+			$data['delivered_orders'] = $this->cm->fetch_records_by_args('ms_orders',$args);
+			$args = [
+				'user_id' => $user[0]->id,
+				'order_status' => 'Pending'
+			];
+			$data['pending_orders'] = $this->cm->fetch_records_by_args('ms_orders',$args);
+			$this->load->view('home/dashboard',$data);
 		}
+		
 	}
 
 	public function my_orders()
