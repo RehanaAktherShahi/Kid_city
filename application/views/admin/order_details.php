@@ -5,6 +5,7 @@
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
 		body{background: #f2f2f2;}
+		select{display: block;border: 1px solid silver;height: 40px;margin-bottom: 10px;width: 40%;}
 	</style>
 </head>
 <body>
@@ -36,7 +37,7 @@
 				 foreach($product_list as $pro_list):?>
 				<tr>
 					<td style="text-align: center;"><?= $pro_list->order_id; ?></td>
-					<td><?= $pro_list->product_name; ?></td>
+					<td><a href="<?= base_url('home/Product_detail/'.$pro_list->product_id); ?>" target="_blank"><?= $pro_list->product_name; ?></a></td>
 					<td style="text-align: right;"><?= $pro_list->quantity; ?></td>
 					<td style="text-align: right;"><?= number_format($pro_list->rate); ?></td>
 					<td style="text-align: center;padding-left: 100px;"><?php $total_amount = $pro_list->quantity * $pro_list->rate; 
@@ -49,6 +50,46 @@
 				</tr>
 			<?php endif; ?>
 			</table>
+		</div>
+	</div>
+	<div class="card">
+		<div class="card-content" style="border-bottom: 1px solid silver;padding: 10px;">
+			<h5 style="margin-top: 5px;font-size: 20px;">Order Status</h5>
+		</div>
+		<div class="card-content" style="padding: 10px;">
+			<h6 style="font-size: 14px;font-weight: 500;color: grey;">Order Status</h6>
+			<select name="status">
+				<?php if($order_details[0]->order_status == 'Pending'): ?>
+					<option selected>Pending</option>
+					<option>Packed</option>
+					<option>Dispatch</option>
+					<option>Delivered</option>
+					<?php elseif($order_details[0]->order_status == 'Packed'): ?>
+						<option selected>Pending</option>
+						<option selected>Packed</option>
+						<option>Dispatch</option>
+						<option>Delivered</option>
+						<?php elseif($order_details[0]->order_status == 'Dispatch'): ?>
+							<option selected>Pending</option>
+							<option>Packed</option>
+							<option selected>Dispatch</option>
+							<option>Delivered</option>
+							<?php elseif($order_details[0]->order_status == 'Delivered'): ?>
+								<option selected>Pending</option>
+								<option>Packed</option>
+								<option>Dispatch</option>
+								<option selected>Delivered</option>
+								<?php else: ?>
+									<option selected="">Select Status</option>
+									<option selected>Pending</option>
+									<option>Packed</option>
+									<option>Dispatch</option>
+									<option>Delivered</option>
+								<?php endif; ?>
+				
+			</select>
+			<button type="submit" class="btn waves-effect waves-light" style="background: black;text-transform: capitalize;">Update Status</button>
+			<a href="<?= base_url('admin/print_label/'.$order_details[0]->id); ?>" target="_blank" class="btn waves-effect waves-light" style="background: black;text-transform: capitalize;">Print Lable</a>
 		</div>
 	</div>
 </div>

@@ -703,6 +703,25 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function print_label($order_id)
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			$args = [
+				'id' => $order_id
+			];
+			$data['order_details'] = $this->cm->fetch_records_by_args('ms_orders',$args);
+			$args = [
+				'order_id' => $order_id
+			];
+			$data['product_list'] = $this->cm->fetch_records_by_args('ms_order_products',$args);
+			$this->load->view('admin/print_label',$data);
+		}
+	}
+
 }
 
 ?>
