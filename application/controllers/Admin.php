@@ -49,7 +49,12 @@ class Admin extends CI_Controller
 			return redirect('admin/index');
 		}
 		else{
-			$this->load->view('admin/dashboard');
+			$order = [
+					'column_name' => 'count_sales',
+					'order' => 'desc'
+			];
+			$data['top_sold_products'] = $this->cm->fetch_all_records_with_orders('ms_products',$order,'5');
+			$this->load->view('admin/dashboard',$data);
 		}
 	}
 
@@ -729,6 +734,41 @@ class Admin extends CI_Controller
 			return redirect('admin/index');
 		}
 		else{
+			// count sold products start
+			if($this->input->post('status') == "Delivered"){
+					$args = [
+					'order_id' => $order_id
+					];
+					$check_products = $this->cm->fetch_records_by_args('ms_order_products',$args);
+					//$product_ids = "";
+					if(count($check_products)){
+						foreach($check_products as $check_pro){
+							$product_ids[] = $check_pro->product_id;
+							$this->db->insert('ms_sold_products',['product_id'=>$check_pro->product_id]);
+						}
+
+						// fetch products
+						$sold_products = $this->db->select('product_id,COUNT(product_id)')
+								 ->from('ms_sold_products')
+								 ->where_in('product_id',$product_ids)
+								 ->group_by('product_id')
+								 ->get()->result_array();
+						 for($i=0; $i<count($sold_products); $i++){
+						 	$result = $this->db->where('id',$sold_products[$i]['product_id'])
+						 		->update('ms_products',[
+						 			'count_sales'=>$sold_products[$i]['COUNT(product_id)']
+						 		]);
+						 }
+					}
+					else{
+
+					} 
+			}
+			else{
+
+			}
+			// count sold products end
+
 			$args = [
 				'id' => $order_id
 			];

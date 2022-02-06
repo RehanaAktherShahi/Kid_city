@@ -182,5 +182,27 @@ class Main extends CI_Model
         }
     }
 
+    public function fetch_all_records_with_orders($tablename,$order_format,$limit)
+    {
+        extract($order_format);
+        if($limit == "limit"){
+
+        }
+        else{
+            $this->db->limit($limit);
+        }
+        $fetch_rec = $this->db->select()
+                ->from($tablename)
+                ->order_by($order_format['column_name'],$order_format['order'])
+                ->get();
+
+        if($fetch_rec->num_rows() > 0){
+            return $fetch_rec->result();
+        }
+        else{
+            return $fetch_rec->result();
+        }      
+    }
+
 
 }

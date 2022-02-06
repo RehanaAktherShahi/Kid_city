@@ -109,10 +109,15 @@
 				<div class="card-content">
 					<h6>Top Products Sold</h6>
 					<ul id="top_sold_products">
+						<?php if(count($top_sold_products)): 
+							foreach($top_sold_products as $t_s_pro): ?>
 						<li>
-							<h6 style="font-size: 14px;font-weight: 500;"><a href="" target="_blank" style="color: black;">Product Title</a></h6>
-							<h6 style="font-size: 15px;"><span style="font-weight: 800;font-size: 14px;"> &#2547; </span>&nbsp;500<span class="right"><b>Units- 150</b></h6>
+							<h6 style="font-size: 14px;font-weight: 500;"><a href="<?= base_url('home/product_detail/'.$t_s_pro->id); ?>" target="_blank" style="color: black;"><?= $t_s_pro->product_title; ?></a></h6>
+							<h6 style="font-size: 15px;"><span style="font-weight: 800;font-size: 14px;"> &#2547; </span>&nbsp;<?= number_format($t_s_pro->price); ?><span class="right"><b>Units- <?= $t_s_pro->count_sales; ?></b></h6>
 						</li>
+						<?php endforeach; 
+					    else: ?>
+					    <?php endif; ?>
 					</ul>
 				</div> 
 			</div>
