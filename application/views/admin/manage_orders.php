@@ -74,7 +74,7 @@
 						</center>
 						<ul class="dropdown-content action_dropdown" id="order_action_<?= $order->id; ?>">
 						<li><a href="<?= base_url('admin/order_delete/'.$order->id); ?>" onclick="return confirm('Confirm ! Are You Sure Delete This Order.')" class="waves-effect">Delete Order</a></li>
-						<li><a href="" class="waves-effect">View Order</a></li>
+						<li><a href="<?= base_url('admin/view_order/'.$order->id); ?>" target="_blank" class="waves-effect">View Order</a></li>
 						
 					</ul>
 					</td>
