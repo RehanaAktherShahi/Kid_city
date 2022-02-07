@@ -888,6 +888,155 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function count_orders($type)
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			if($type == "all"){
+				$orders = $this->cm->fetch_all_records('ms_orders','desc','limit');
+			}
+			else if($type == "today"){
+				$args = [
+					'order_date' => date('Y-m-d')
+				];
+				$orders = $this->cm->fetch_records_by_args('ms_orders',$args);
+			}
+			else if($type == "yesterday"){
+				$args = [
+					'order_date' => date('Y-m-d',strtotime("-1 day"))
+				];
+				$orders = $this->cm->fetch_records_by_args('ms_orders',$args);
+			}
+			else if($type == "last_30_days"){
+				$args = [
+					'order_date>=' => date('Y-m-d',strtotime("-30 days")),
+					'order_date<=' => date('Y-m-d')
+				];
+				$orders = $this->cm->fetch_records_by_args('ms_orders',$args);
+			}
+			else{
+				$orders = $this->cm->fetch_all_records('ms_orders','desc','limit');
+			}
+			echo count($orders);
+		}
+	}
+
+	public function count_categories($type)
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+
+			if($type == "all"){
+				$categories = $this->cm->fetch_all_records2('ms_categories','desc','limit');
+			}
+			else if($type == "today"){
+				$args = [
+					'date' => date('Y-m-d')
+					
+				];
+				$categories = $this->cm->fetch_records_by_args('ms_categories',$args);
+			}
+			else if($type == "yesterday"){
+				$args = [
+					'date' => date('Y-m-d',strtotime("-1 day"))
+				];
+				$categories = $this->cm->fetch_records_by_args('ms_categories',$args);
+			}
+			else if($type == "last_30_days"){
+				$args = [
+					'date>=' => date('Y-m-d',strtotime("-30 days")),
+					'date<=' => date('Y-m-d')
+					
+				];
+				$categories = $this->cm->fetch_records_by_args('ms_categories',$args);
+			}
+			else{
+				$categories = $this->cm->fetch_all_records('ms_categories','desc','limit');
+			}
+
+			echo count($categories);
+
+		}
+	}
+
+	public function count_products($type)
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			if($type == "all"){
+				$products = $this->cm->fetch_all_records3('ms_products','desc','limit');
+			}
+			else if($type == "today"){
+				$args = [
+					'upload_date' => date('Y-m-d')
+				];
+				$products = $this->cm->fetch_records_by_args('ms_products',$args);
+			}
+			else if($type == "yesterday"){
+				$args = [
+					'upload_date' => date('Y-m-d',strtotime("-1 day"))
+				];
+				$products = $this->cm->fetch_records_by_args('ms_products',$args);
+			}
+			else if($type == "last_30_days"){
+				$args = [
+					'upload_date>=' => date('Y-m-d',strtotime("-30 days")),
+					'upload_date<=' => date('Y-m-d')
+				];
+				$products = $this->cm->fetch_records_by_args('ms_products',$args);
+			}
+			else{
+				$products = $this->cm->fetch_all_records('ms_products','desc','limit');
+			}
+			echo count($products);
+		}
+	}
+
+	public function count_users($type)
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			if($type == "all"){
+				$users = $this->cm->fetch_all_records1('ms_users','desc','limit');
+			}
+			else if($type == "today"){
+				$args = [
+					'register_date' => date('Y-m-d')
+				];
+				$users = $this->cm->fetch_records_by_args('ms_users',$args);
+			}
+			else if($type == "yesterday"){
+				$args = [
+					'register_date' => date('Y-m-d',strtotime("-1 day"))
+				];
+				$users = $this->cm->fetch_records_by_args('ms_users',$args);
+			}
+			else if($type == "last_30_days"){
+				$args = [
+					'register_date>=' => date('Y-m-d',strtotime("-30 days")),
+					'register_date<=' => date('Y-m-d')
+				];
+				$users = $this->cm->fetch_records_by_args('ms_users',$args);
+			}
+			else{
+				$users = $this->cm->fetch_all_records('ms_users','desc','limit');
+			}
+			echo count($users);
+		}
+	}
+
 
 }
 

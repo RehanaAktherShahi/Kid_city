@@ -113,5 +113,152 @@ chart.render();
 }
 </script>
 
+<script type="text/javascript">
+	//count orders script start
+		count_orders();
+		function count_orders(type = "all"){
+			if(type == 'all'){
+				$('#show_orders_heading').text('All');
+			}
+			else if(type == 'today'){
+				$('#show_orders_heading').text('Today');
+			}
+			else if(type == 'yesterday'){
+				$('#show_orders_heading').text('Yesterday');
+			}
+			else if(type == 'last_30_days'){
+				$('#show_orders_heading').text('Last 30 Days');
+			}
+			else{
+				$('#show_orders_heading').text('All');
+			}
+			$.ajax({
+					type:'ajax',
+					method:'GET',
+					url:'<?= base_url('admin/count_orders/'); ?>'+type,
+					beforeSend:function(data){
+						$('#show_orders').text('Loading...');
+					},
+					
+					success:function(data){
+						$('#show_orders').html(data);
+					},
+					error:function(){
+						$('#show_orders').text('0');
+					}
+				});
+		}
+		//count orders script end
+
+		// count categories script start
+		
+		count_categories();
+		function count_categories(type = "all"){
+			if(type == 'all'){
+				$('#show_categories_heading').text('All');
+			}
+			else if(type == 'today'){
+				$('#show_categories_heading').text('Today');
+			}
+			else if(type == 'yesterday'){
+				$('#show_categories_heading').text('Yesterday');
+			}
+			else if(type == 'last_30_days'){
+				$('#show_categories_heading').text('Last 30 Days');
+			}
+			else{
+				$('#show_categories_heading').text('All');
+			}
+			$.ajax({
+					type:'ajax',
+					method:'GET',
+					url:'<?= base_url('admin/count_categories/'); ?>'+type,
+					beforeSend:function(data){
+						$('#show_categories').text('Loading...');
+					},
+					
+					success:function(data){
+						$('#show_categories').html(data);
+					},
+					error:function(){
+						$('#show_categories').text('0');
+					}
+				});
+		}
+		// count categories script end
+
+		// count products script start
+		count_products();
+		function count_products(type = "all"){
+			if(type == 'all'){
+				$('#show_products_heading').text('All');
+			}
+			else if(type == 'today'){
+				$('#show_products_heading').text('Today');
+			}
+			else if(type == 'yesterday'){
+				$('#show_products_heading').text('Yesterday');
+			}
+			else if(type == 'last_30_days'){
+				$('#show_products_heading').text('Last 30 Days');
+			}
+			else{
+				$('#show_products_heading').text('All');
+			}
+			$.ajax({
+					type:'ajax',
+					method:'GET',
+					url:'<?= base_url('admin/count_products/'); ?>'+type,
+					beforeSend:function(data){
+						$('#show_products').text('Loading...');
+					},
+					
+					success:function(data){
+						$('#show_products').html(data);
+					},
+					error:function(){
+						$('#show_products').text('0');
+					}
+				});
+		}
+		// count products script end
+
+		// count users script start
+		count_users();
+		function count_users(type = "all"){
+			if(type == 'all'){
+				$('#show_users_heading').text('All');
+			}
+			else if(type == 'today'){
+				$('#show_users_heading').text('Today');
+			}
+			else if(type == 'yesterday'){
+				$('#show_users_heading').text('Yesterday');
+			}
+			else if(type == 'last_30_days'){
+				$('#show_users_heading').text('Last 30 Days');
+			}
+			else{
+				$('#show_users_heading').text('All');
+			}
+			$.ajax({
+					type:'ajax',
+					method:'GET',
+					url:'<?= base_url('admin/count_users/'); ?>'+type,
+					beforeSend:function(data){
+						$('#show_users').text('Loading...');
+					},
+					
+					success:function(data){
+						$('#show_users').html(data);
+					},
+					error:function(){
+						$('#show_users').text('0');
+					}
+				});
+		}
+		// count users script end
+	</script>
+
 
 

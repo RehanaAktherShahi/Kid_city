@@ -236,5 +236,71 @@ class Main extends CI_Model
         }
     }
 
+    public function fetch_all_records2($tablename,$categories,$limit)
+    {
+        if($limit == "limit")
+        {
+
+        }
+        else{
+            $this->db->limit($limit);
+        }
+
+        $fetch_rec = $this->db->select()
+                 ->from($tablename)
+                 ->order_by('id',$categories)
+                 ->get();
+        if($fetch_rec->num_rows() > 0){
+            return $fetch_rec->result();
+        }
+        else{
+            return $fetch_rec->result();
+        }
+    }
+
+     public function fetch_all_records3($tablename,$products,$limit)
+    {
+        if($limit == "limit")
+        {
+
+        }
+        else{
+            $this->db->limit($limit);
+        }
+
+        $fetch_rec = $this->db->select()
+                 ->from($tablename)
+                 ->order_by('id',$products)
+                 ->get();
+        if($fetch_rec->num_rows() > 0){
+            return $fetch_rec->result();
+        }
+        else{
+            return $fetch_rec->result();
+        }
+    }
+
+    public function fetch_all_records1($tablename,$users,$limit)
+    {
+        if($limit == "limit")
+        {
+
+        }
+        else{
+            $this->db->limit($limit);
+        }
+
+        $fetch_rec = $this->db->select()
+                 ->from($tablename)
+                 ->order_by('id',$users)
+                 ->get();
+        if($fetch_rec->num_rows() > 0){
+            return $fetch_rec->result();
+        }
+        else{
+            return $fetch_rec->result();
+        }
+    }
+
 
 }

@@ -23,14 +23,14 @@
 				<div class="card-content">
 					<h6 style="font-weight: 500;font-size: 15px;color: white;">Order's<span class="right"><span class="fa fa-ellipsis-v dropdown-trigger" data-target="order_dropdown" style="cursor: pointer;color: white;"></span></span></h6>
 					<h5 style="margin-top: 25px;color: white;"><b><span id="show_orders">0</span></b><span class="right"><span class="fa fa-shopping-cart white-text"></span></span></h5>
-					<h6 style="font-size: 14px;color: white;"><span id="show_orders_heading">Last 30 Days</span></h6>
+					<h6 style="font-size: 14px;color: white;"><span id="show_orders_heading"></span></h6>
 					<!-- order dropdown start -->
 					<ul class="dropdown-content" id="order_dropdown">
-						<li><a href="#!">Today Order</a></li>
-						<li><a href="#!">Privious Day Order</a></li>
-						<li><a href="#!">Last 30 Days Orders</a></li>
+						<li><a href="#!" onclick="count_orders('today')">Today Order</a></li>
+						<li><a href="#!" onclick="count_orders('yesterday')">Privious Day Order</a></li>
+						<li><a href="#!"  onclick="count_orders('last_30_days')">Last 30 Days Orders</a></li>
 						<div class="divider"></div>
-						<li><a href="#!">All Orders</a></li>
+						<li><a href="#!" onclick="count_orders('all')">All Orders</a></li>
 					</ul>
 					<!-- order dropdown end -->
 				</div>
@@ -41,14 +41,14 @@
 				<div class="card-content">
 					<h6 style="font-weight: 500;font-size: 15px;color: white;">Categories<span class="right"><span class="fa fa-ellipsis-v dropdown-trigger" data-target="category_dropdown" style="cursor: pointer;color: white;"></span></span></h6>
 					<h5 style="margin-top: 25px;color: white;"><b><span id="show_categories">0</span></b><span class="right"><span class="fa fa-list-alt white-text"></span></span></h5>
-					<h6 style="font-size: 14px;color: white;"><span id="show_categories_heading">Last 30 Days</span></h6>
+					<h6 style="font-size: 14px;color: white;"><span id="show_categories_heading"></span></h6>
 					<!-- category dropdown start -->
 					<ul class="dropdown-content" id="category_dropdown">
-						<li><a href="#!">Today Category</a></li>
-						<li><a href="#!">Privious Day Category</a></li>
-						<li><a href="#!">Last 30 Days Categories</a></li>
+						<li><a href="#!" onclick="count_categories('today')">Today Category</a></li>
+						<li><a href="#!" onclick="count_categories('yesterday')">Privious Day Category</a></li>
+						<li><a href="#!" onclick="count_categories('last_30_days')">Last 30 Days Categories</a></li>
 						<div class="divider"></div>
-						<li><a href="#!">All Categories</a></li>
+						<li><a href="#!" onclick="count_categories('all')">All Categories</a></li>
 					</ul>
 					<!-- category dropdown end -->
 				</div>
@@ -60,14 +60,14 @@
 					
 					<h6 style="font-weight: 500;font-size: 15px;color: white;">Products<span class="right"><span class="fa fa-ellipsis-v dropdown-trigger" data-target="product_dropdown" style="cursor: pointer;color: white;"></span></span></h6>
 					<h5 style="margin-top: 25px;color: white;"><b><span id="show_products">0</span></b><span class="right"><span class="fa fa-cubes white-text"></span></span></h5>
-					<h6 style="font-size: 14px;color: white;"><span id="show_products_heading">Last 30 Days</span></h6>
+					<h6 style="font-size: 14px;color: white;"><span id="show_products_heading"></span></h6>
 					<!-- product dropdown start -->
 					<ul class="dropdown-content" id="product_dropdown">
-						<li><a href="#!">Today Product</a></li>
-						<li><a href="#!">Privious Day Product</a></li>
-						<li><a href="#!">Last 30 Days Products</a></li>
+						<li><a href="#!" onclick="count_products('today')">Today Product</a></li>
+						<li><a href="#!" onclick="count_products('yesterday')">Privious Day Product</a></li>
+						<li><a href="#!" onclick="count_products('last_30_days')">Last 30 Days Products</a></li>
 						<div class="divider"></div>
-						<li><a href="#!">All Products</a></li>
+						<li><a href="#!" onclick="count_products('all')">All Products</a></li>
 					</ul>
 					<!-- product dropdown end -->
 					
@@ -79,14 +79,14 @@
 				<div class="card-content">
 					<h6 style="font-weight: 500;font-size: 15px;color: white;">Customers<span class="right"><span class="fa fa-ellipsis-v dropdown-trigger" data-target="customer_dropdown" style="cursor: pointer;color: white;"></span></span></h6>
 					<h5 style="margin-top: 25px;color: white;"><b><span id="show_users">0</span></b><span class="right"><span class="fa fa-users white-text"></span></span></h5>
-					<h6 style="font-size: 14px;color: white;"><span id="show_users_heading">Last 30 Days</span></h6>
+					<h6 style="font-size: 14px;color: white;"><span id="show_users_heading"></span></h6>
 					<!-- customer dropdown start -->
 	               <ul class="dropdown-content" id="customer_dropdown">
-						<li><a href="#!">Today Customers</a></li>
-						<li><a href="#!">Privious Day Customers</a></li>
-						<li><a href="#!">Last 30 Days Customers</a></li>
+						<li><a href="#!" onclick="count_users('today')">Today Customers</a></li>
+						<li><a href="#!" onclick="count_users('yesterday')">Privious Day Customers</a></li>
+						<li><a href="#!" onclick="count_users('last_30_days')">Last 30 Days Customers</a></li>
 						<div class="divider"></div>
-						<li><a href="#!">All Customers</a></li>
+						<li><a href="#!" onclick="count_users('all')">All Customers</a></li>
 				   </ul>
 				<!-- customer dropdown end -->
 				</div>
