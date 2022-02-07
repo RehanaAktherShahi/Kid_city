@@ -204,5 +204,20 @@ class Main extends CI_Model
         }      
     }
 
+    public function fetch_all_sales($args)
+    {
+        $fetch_rec = $this->db->select('order_date, COUNT(order_date), SUM(total_quantity), SUM(total_amount)')
+                          ->from('ms_orders')
+                          ->where($args)
+                          ->group_by('order_date')
+                          ->get();
+       if($fetch_rec->num_rows() > 0){
+            return $fetch_rec->result_array();
+        }
+        else{
+            return $fetch_rec->result_array();
+        } 
+    }
+
 
 }

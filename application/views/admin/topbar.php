@@ -54,7 +54,7 @@
 			<div class="collapsible-body">
 				<ul>
 					<li><a href="">Today Sales</a></li>
-					<li><a href="">All Time Sales</a></li>
+					<li><a href="<?= base_url('admin/all_sales'); ?>">All Time Sales</a></li>
 				</ul>
 			</div>
 		</li>
