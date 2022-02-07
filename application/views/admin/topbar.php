@@ -53,7 +53,7 @@
 			<div class="collapsible-header">Sales</div>
 			<div class="collapsible-body">
 				<ul>
-					<li><a href="">Today Sales</a></li>
+					<li><a href="<?= base_url('admin/today_sales'); ?>">Today Sales</a></li>
 					<li><a href="<?= base_url('admin/all_sales'); ?>">All Time Sales</a></li>
 				</ul>
 			</div>

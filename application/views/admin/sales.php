@@ -18,7 +18,7 @@
 	<div class="card">
 		<div class="card-content" style="border-bottom: 1px solid silver;padding: 10px;">
 			<h5>Manage Sales<span class="right"><a href="#!" class="modal-trigger" data-target="customize_sale_modal" style="font-size: 15px;font-weight: 500;">Customize Sales</a></span></h5>
-			<h6>27-06-2021 To 27-10-2021</h6>
+			<h6>27-06-2021 To 27-10-2021<span class="right"><a href="<?= base_url('admin/all_sales'); ?>"  style="font-size: 15px;color: red;">Reset</a></span></h6>
 			<!-- customize sale modal start -->
 			<div class="modal" id="customize_sale_modal">
 				<div class="modal-content" style="padding: 10px;border-bottom: 1px solid silver;">
