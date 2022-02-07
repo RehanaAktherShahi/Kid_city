@@ -802,6 +802,23 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function search_sales()
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			$args = [
+				'order_status' => 'Delivered',
+				'order_date>=' => $this->input->post('start_date'),
+				'order_date<=' => $this->input->post('last_date')
+			];
+			$data['sales'] = $this->cm->fetch_all_sales($args);
+			$this->load->view('admin/sales',$data);
+		}
+	}
+
 }
 
 ?>

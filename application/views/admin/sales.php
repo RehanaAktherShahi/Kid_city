@@ -6,6 +6,8 @@
 	<style type="text/css">
 		body{background: #f2f2f2;}
 		table tr td{font-size: 14px;padding: 5px;}
+		#input_box{border: 1px solid silver;height: 35px;padding-left: 10px;box-shadow: none;box-sizing: border-box;}
+		#customize_sale_modal{width: 40%;}
 	</style>
 </head>
 <body>
@@ -15,8 +17,30 @@
 <div class="container">
 	<div class="card">
 		<div class="card-content" style="border-bottom: 1px solid silver;padding: 10px;">
-			<h5>Manage Sales</h5>
+			<h5>Manage Sales<span class="right"><a href="#!" class="modal-trigger" data-target="customize_sale_modal" style="font-size: 15px;font-weight: 500;">Customize Sales</a></span></h5>
 			<h6>27-06-2021 To 27-10-2021</h6>
+			<!-- customize sale modal start -->
+			<div class="modal" id="customize_sale_modal">
+				<div class="modal-content" style="padding: 10px;border-bottom: 1px solid silver;">
+					<h6 style="font-size: 15px;color: grey;">Customize Sales Report</h6>
+				</div>
+				<div class="modal-content" style="padding: 10px;">
+					<?= form_open('admin/search_sales'); ?>
+					<div class="row" style="margin-bottom: 0px;margin-top: 10px;">
+						<div class="col l6 m6 s12">
+							<input type="date" name="start_date" id="input_box" required>
+						</div>
+						<div class="col l6 m6 s12">
+							<input type="date" name="last_date" id="input_box" required>
+						</div>
+						<div class="col l12 m12 s12">
+							<button type="submit" class="btn waves-effect waves-light" style="background: black;margin-top: 10px;text-transform: capitalize;">Search Reports</button>
+						</div>
+					</div>
+					<?= form_close(); ?>
+				</div>
+			</div>
+			<!-- customize sale modal end -->
 		</div>
 		<div class="card-content" style="padding: 0px;padding-right: 10px;">
 			<table class="table">
