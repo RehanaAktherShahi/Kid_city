@@ -862,6 +862,32 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function delivered_orders()
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			$args = [
+				'order_status' => 'Delivered'
+			];
+			// create pagination
+			$config['base_url'] = base_url('admin/delivered_orders');
+			$config['per_page'] = 10;
+			$config['total_rows'] = count($this->cm->fetch_records_by_args('ms_orders',$args));
+			
+			$this->load->library('pagination',$config);
+			$order = [
+				'column_name' => 'order_date',
+				'order'       => 'desc'
+			];
+			$data['orders'] = $this->cm->fetch_all_records_by_args_with_pagination('ms_orders',$args,$order,$config['per_page'],$this->uri->segment(3));
+			
+			$this->load->view('admin/manage_orders',$data);
+		}
+	}
+
 
 }
 

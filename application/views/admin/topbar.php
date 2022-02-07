@@ -44,7 +44,7 @@
 			<div class="collapsible-body">
 				<ul>
 					<li><a href="<?= base_url('admin/pending_orders'); ?>">Pending Orders</a></li>
-					<li><a href="">Delivered Orders</a></li>
+					<li><a href="<?= base_url('admin/delivered_orders'); ?>">Delivered Orders</a></li>
 					<li><a href="<?= base_url('admin/manage_orders'); ?>">Manage Orders</a></li>
 				</ul>
 			</div>
