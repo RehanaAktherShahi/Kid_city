@@ -80,7 +80,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 	exportEnabled: true,
 	theme: "light1", // "light1", "light2", "dark1", "dark2"
 	title:{
-		text: "Simple Column Chart with Index Labels"
+		text: "Last 7 Days Orders"
 	},
   	axisY: {
       includeZero: true
@@ -92,19 +92,13 @@ var chart = new CanvasJS.Chart("chartContainer", {
       	indexLabelFontSize: 16,
 		indexLabelPlacement: "outside",
 		dataPoints: [
-			{ x: 10, y: 71 },
-			{ x: 20, y: 55 },
-			{ x: 30, y: 50 },
-			{ x: 40, y: 65 },
-			{ x: 50, y: 92, indexLabel: "\u2605 Highest" },
-			{ x: 60, y: 68 },
-			{ x: 70, y: 38 },
-			{ x: 80, y: 71 },
-			{ x: 90, y: 54 },
-			{ x: 100, y: 60 },
-			{ x: 110, y: 36 },
-			{ x: 120, y: 49 },
-			{ x: 130, y: 21, indexLabel: "\u2691 Lowest" }
+			{ label:'Today', y: <?= $chart_data['ch_today_order']; ?> },
+			{ label:'Yesterday', y: <?= $chart_data['ch_yesterday_order']; ?> },
+			{ label:'3rd Day', y: <?= $chart_data['ch_last_3_day_order']; ?> },
+			{ label:'4th Day', y:  <?= $chart_data['ch_last_4_day_order']; ?> },
+			{ label:'5th Day', y:  <?= $chart_data['ch_last_5_day_order']; ?> },
+			{ label:'6th Day', y:  <?= $chart_data['ch_last_6_day_order']; ?> },
+			{ label:'7th Day', y:  <?= $chart_data['ch_last_7_day_order']; ?> },
 		]
 	}]
 });

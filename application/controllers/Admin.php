@@ -54,6 +54,53 @@ class Admin extends CI_Controller
 					'order' => 'desc'
 			];
 			$data['top_sold_products'] = $this->cm->fetch_all_records_with_orders('ms_products',$order,'5');
+
+			// order chart data start
+			$args = [
+				'order_date' => date('Y-m-d')
+			];
+			$today_orders_data = $this->cm->fetch_records_by_args('ms_orders',$args);
+
+			$args = [
+				'order_date' => date('Y-m-d',strtotime("-1 day"))
+			];
+			$yesterday_orders_data = $this->cm->fetch_records_by_args('ms_orders',$args);
+
+			$args = [
+				'order_date' => date('Y-m-d',strtotime("-2 day"))
+			];
+			$last_3_day_orders_data = $this->cm->fetch_records_by_args('ms_orders',$args);
+
+			$args = [
+				'order_date' => date('Y-m-d',strtotime("-3 day"))
+			];
+			$last_4_day_orders_data = $this->cm->fetch_records_by_args('ms_orders',$args);
+
+			$args = [
+				'order_date' => date('Y-m-d',strtotime("-4 day"))
+			];
+			$last_5_day_orders_data = $this->cm->fetch_records_by_args('ms_orders',$args);
+
+			$args = [
+				'order_date' => date('Y-m-d',strtotime("-5 day"))
+			];
+			$last_6_day_orders_data = $this->cm->fetch_records_by_args('ms_orders',$args);
+
+			$args = [
+				'order_date' => date('Y-m-d',strtotime("-6 day"))
+			];
+			$last_7_day_orders_data = $this->cm->fetch_records_by_args('ms_orders',$args);
+
+			$data['chart_data'] = [
+				'ch_today_order' => count($today_orders_data),
+				'ch_yesterday_order' => count($yesterday_orders_data),
+				'ch_last_3_day_order' => count($last_3_day_orders_data),
+				'ch_last_4_day_order' => count($last_4_day_orders_data),
+				'ch_last_5_day_order' => count($last_5_day_orders_data),
+				'ch_last_6_day_order' => count($last_6_day_orders_data),
+				'ch_last_7_day_order' => count($last_7_day_orders_data)
+			];
+			// order chart data end
 			$this->load->view('admin/dashboard',$data);
 		}
 	}
