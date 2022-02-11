@@ -1084,6 +1084,27 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function manage_customers()
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			// create pagination
+			$config['base_url'] = base_url('admin/manage_customers');
+			$config['per_page'] = 10;
+			$config['total_rows'] = $this->db->count_all('ms_users');
+			$this->load->library('pagination',$config);
+			$user = [
+				'column_name' => 'fullname',
+				'user'       => 'desc'
+			];
+			$data['users'] = $this->cm->fetch_all_records_with_paginations('ms_users',$user,$config['per_page'],$this->uri->segment(3));
+			
+			$this->load->view('admin/manage_customers',$data);
+		}
+	}
 
 }
 

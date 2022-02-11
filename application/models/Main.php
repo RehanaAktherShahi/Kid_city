@@ -302,5 +302,21 @@ class Main extends CI_Model
         }
     }
 
+    public function fetch_all_records_with_paginations($tablename,$user_format,$limit,$offset)
+    {
+        extract($user_format);
+        $fetch_rec = $this->db->select()
+                 ->from($tablename)
+                 ->order_by($user_format['column_name'],$user_format['user'])
+                 ->limit($limit,$offset)
+                 ->get();
+        if($fetch_rec->num_rows() > 0){
+            return $fetch_rec->result();
+        }
+        else{
+            return $fetch_rec->result();
+        }
+    }
+
 
 }

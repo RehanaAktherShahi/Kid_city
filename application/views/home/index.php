@@ -13,8 +13,8 @@
 <?php $this->load->view('home/header'); ?>
 <!-- image slider section start -->
 <div class="carousel carousel-slider">
-    <a class="carousel-item" href="#one!"><img src="<?= base_url('assects/image/Slide1.png'); ?>" class="responsive-img"></a>
-    <a class="carousel-item" href="#two!"><img src="<?= base_url('assects/image/Slide2.jpg'); ?>" class="responsive-img"></a>
+    <a class="carousel-item" href="#one!"><img src="<?= base_url('assects/image/banner1.jpeg'); ?>" class="responsive-img"></a>
+    <a class="carousel-item" href="#two!"><img src="<?= base_url('assects/image/banner2.jpeg'); ?>" class="responsive-img"></a>
  </div>
 <!-- image slider section end -->
 <!-- category section start -->

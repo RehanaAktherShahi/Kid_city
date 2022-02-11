@@ -63,7 +63,7 @@
 			<div class="collapsible-body">
 				<ul>
 					
-					<li><a href="">Manage Customers</a></li>
+					<li><a href="<?= base_url('admin/manage_customers'); ?>">Manage Customers</a></li>
 				</ul>
 			</div>
 		</li>
