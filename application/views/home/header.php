@@ -63,7 +63,7 @@
 			<li><a href="">Our Policies</a></li>
 			<li><a href="">Terms & Conditions</a></li>
 			<li><a href="">Our Outlets</a></li>
-			<li><a href="">Contact Us</a></li>
+			<li><a href="<?= base_url('home/contact_us'); ?>">Contact Us</a></li>
 		</ul>
 		
 		<!-- left menu -->
