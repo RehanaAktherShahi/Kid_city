@@ -107,6 +107,6 @@
 <!-- category section end -->
 <!-- body section end -->
 <?php $this->load->view('home/js-file'); ?>
-	<?php $this->load->view('admin/custom_js'); ?>
+<?php $this->load->view('admin/custom_js'); ?>
 </body>
 </html>

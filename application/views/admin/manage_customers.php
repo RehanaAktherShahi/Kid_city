@@ -9,10 +9,6 @@
 		.btn-flat:hover{background: #996633;color: white;}
 		.action_dropdown{width: 150px!important}
 		.action_dropdown li a{color: grey;font-size: 14px;font-weight: 500;}
-		
-		#search_customer{display: flex;}
-		#search_customer li:first-child{width: 250px;}
-		#input_box{border: 1px solid silver;box-shadow: none;box-sizing: border-box;padding-left: 10px;padding-right: 10px;height: 40px;border-radius: 0px;}
 		#pagination a{color: black;font-weight: 500;border: 1px solid black;padding: 5px 10px;margin-left: 5px;}
 		#pagination strong{font-weight: 500;border: 1px solid black;padding: 5px 10px;margin-left: 5px;background: black;color: white;}
 		table tr td{font-size: 14px;padding: 5px;}
@@ -54,7 +50,7 @@
 							<button type="button" class="btn btn-flat btn-floating dropdown-trigger" data-target = "user_action_<?= $user->id; ?>"><span class="fa fa-ellipsis-v"></span></button>
 						</center>
 						<ul class="dropdown-content action_dropdown" id="user_action_<?= $user->id; ?>">
-						<li><a href="" class="waves-effect">Delete Customer</a></li>
+						<li><a href="<?= base_url('admin/user_delete/'.$user->id); ?>" onclick="return confirm('Confirm ! Are You Sure Delete This Customer.')" class="waves-effect">Delete Customer</a></li>
 						
 						
 					</ul>

@@ -1106,6 +1106,32 @@ class Admin extends CI_Controller
 		}
 	}
 
+	public function user_delete($id = 0)
+	{
+		if($this->session->userdata('admin_id') == "")
+		{
+			return redirect('admin/index');
+		}
+		else{
+			$args = [
+				'id' => $id
+			];
+			$result = $this->cm->delete_records_by_args('ms_users',$args);
+			$args = [
+				'id' => $id
+			];
+			$result = $this->cm->delete_records_by_args('ms_users',$args);
+			if($result == true)
+			{
+				$this->session->set_flashdata('error','Fail ! Customer Delete.');
+			}
+			else{
+				$this->session->set_flashdata('success','Congratulations ! Customer Delete Successfully.');
+			}
+			return redirect('admin/manage_customers');
+		}
+	}
+
 }
 
 ?>
