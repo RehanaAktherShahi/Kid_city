@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title><?= (count($category_detail)) ? $category_detail[0]->category_name. ' Products' : 'Category Not Found.'?> - KidsCity</title>
+	<link rel="shortcut icon" href="<?= base_url('assects/image/Logo.jpeg'); ?>">
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
 		body{background: #ffe6ff;}

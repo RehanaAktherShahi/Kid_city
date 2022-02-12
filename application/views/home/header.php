@@ -62,7 +62,7 @@
 			<li><a href="<?= base_url('home/company_profile'); ?>">Company Profile</a></li>
 			<li><a href="<?= base_url('home/policies'); ?>">Our Policies</a></li>
 			<li><a href="<?= base_url('home/terms_condition'); ?>">Terms & Conditions</a></li>
-			<li><a href="">Our Outlets</a></li>
+			<li><a href="<?= base_url('home/our_outlets'); ?>">Our Outlets</a></li>
 			<li><a href="<?= base_url('home/contact_us'); ?>">Contact Us</a></li>
 		</ul>
 		

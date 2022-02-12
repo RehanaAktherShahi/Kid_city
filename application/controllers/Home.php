@@ -516,6 +516,12 @@ class Home extends CI_Controller
 	
 		$this->load->view('home/terms_condition');
 	}
+
+	public function our_outlets()
+	{
+	
+		$this->load->view('home/our_outlets');
+	}
 	
 }
 

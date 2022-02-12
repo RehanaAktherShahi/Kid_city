@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>User sign Up - KidsCity</title>
+	<link rel="shortcut icon" href="<?= base_url('assects/image/Logo.jpeg'); ?>">
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
 		#top_bar{background: #df80ff;}

@@ -26,14 +26,13 @@
       <div class="col l4  s12">
         <h5 class="white-text">Links</h5>
         <ul id="set_footer_link">
-          <li><a href="">Home</a></li>
-          <li><a href="">Company Profile</a></li>
-          <li><a href="">Policies</a></li>
-          <li><a href="">Terms & Conditions</a></li>
-          <li><a href="">Our Outlets</a></li>
+          <li><a href="<?= base_url('home/index'); ?>">Home</a></li>
+          <li><a href="<?= base_url('home/company_profile'); ?>">Company Profile</a></li>
+          <li><a href="<?= base_url('home/policies'); ?>">Policies</a></li>
+          <li><a href="<?= base_url('home/terms_condition'); ?>">Terms & Conditions</a></li>
+          <li><a href="<?= base_url('home/our_outlets'); ?>">Our Outlets</a></li>
           <li><a href="<?= base_url('home/user_signin'); ?>">User Login</a></li>
           <li><a href="<?= base_url('home/user_signup'); ?>">User Registration</a></li>
-          <li><a href="">Admin Login</a></li>
         </ul>
       </div>
       <div class="col l4 s12">

@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title><?= (count($product))?$product[0]->product_title : 'Product Not Found.'; ?> - KidsCity</title>
+	<link rel="shortcut icon" href="<?= base_url('assects/image/Logo.jpeg'); ?>">
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
 		body{background: #ffe6ff;}
