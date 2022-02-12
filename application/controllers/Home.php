@@ -510,6 +510,12 @@ class Home extends CI_Controller
 	
 		$this->load->view('home/policies');
 	}
+
+	public function terms_condition()
+	{
+	
+		$this->load->view('home/terms_condition');
+	}
 	
 }
 
