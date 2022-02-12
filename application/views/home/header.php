@@ -58,8 +58,8 @@
 	<div class="nav-wrapper">
 		<!-- left menu -->
 		<ul class="left">
-			<li><a href="">Home</a></li>
-			<li><a href="">Company Profile</a></li>
+			<li><a href="<?= base_url('home/index'); ?>">Home</a></li>
+			<li><a href="<?= base_url('home/company_profile'); ?>">Company Profile</a></li>
 			<li><a href="">Our Policies</a></li>
 			<li><a href="">Terms & Conditions</a></li>
 			<li><a href="">Our Outlets</a></li>

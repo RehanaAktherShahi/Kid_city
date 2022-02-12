@@ -492,6 +492,12 @@ class Home extends CI_Controller
 		$this->session->unset_userdata('password');
 		return redirect('home/user_signin');
 	}
+
+	public function company_profile()
+	{
+	
+		$this->load->view('home/company_profile');
+	}
 	
 }
 
