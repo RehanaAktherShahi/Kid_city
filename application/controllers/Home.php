@@ -504,6 +504,12 @@ class Home extends CI_Controller
 	
 		$this->load->view('home/contact_us');
 	}
+
+	public function policies()
+	{
+	
+		$this->load->view('home/policies');
+	}
 	
 }
 
