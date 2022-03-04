@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Admin Log In - KidsCity</title>
+	<link rel="shortcut icon" href="<?= base_url('assects/image/Logo.jpeg'); ?>">
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
 		body{background: #f2f2f2;}
@@ -23,7 +24,7 @@
 					<input type="text" name="username" id="input_box" placeholder="Username">
 					<h6 style="font-size: 14px;font-weight: 500;color: grey;">Password</h6>
 					<input type="password" name="password" id="input_box" placeholder="XXXXXXXX">
-					<button type="button" class="btn waves-effect waves-light" id="btn_sign_in" style="background: blue;text-transform: capitalize;width: 40%;font-weight: 500;margin-top: 10px;height: 40px;">Sign In&nbsp;&nbsp;<span class="fa fa-sign-in-alt"></span></button>
+					<button type="button" class="btn waves-effect waves-light" id="btn_sign_in" style="background: #00994d;text-transform: capitalize;width: 40%;font-weight: 500;margin-top: 10px;height: 40px;">Sign In&nbsp;&nbsp;<span class="fa fa-sign-in-alt"></span></button>
 					
 					
 				</div>

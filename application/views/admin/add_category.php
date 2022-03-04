@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Add Category - KidsCity</title>
+	<link rel="shortcut icon" href="<?= base_url('assects/image/Logo.jpeg'); ?>">
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
 		body{background: #f2f2f2;}

@@ -9,6 +9,9 @@
 	#search{background: white;padding-left: 10px;padding-right: 10px;box-shadow: none;box-sizing: border-box;border: 2px solid black;border-right: none;height: 37px;margin-bottom: 2px;font-size: 14px;}
 	nav{background: #df80ff;height: 40px;line-height: 40px;border-top: 1px solid white;box-shadow: none;}
 	nav li a:hover{color: black;}
+	#show_product_list{background: white;margin-top: 0px;position: absolute;z-index: 99;width: 500px;display: none;}
+	#show_product_list a{display: block;font-size: 14px;color: grey;font-weight: 500;padding-left: 15px;line-height: 35px;}
+	#show_product_list a:hover{background: rgba(0,0,0,0.05);}
 </style>
 
 <!-- topbar section start-->
@@ -39,7 +42,16 @@
 		<!-- search products form start -->
 		<ul id="search_form">
 			<li>
-				<input type="text" name="search" id="search"  placeholder="Search Your Products">
+				<input type="text" name="search" id="search"  onkeyup="search_products(this.value)" placeholder="Search Your Products" autocomplete="off">
+
+				<!-- product list section start -->
+				<div id="show_product_list">
+					<a href="">product list</a>
+					<a href="">product list</a>
+					<a href="">product list</a>
+					<a href="">product list</a>
+				</div>
+				<!-- product list section end -->
 			</li>
 			<li style="padding-top: 25px;">
 				<button type="submit" class="btn waves-effects waves-lights" style="background: black;"><span class="fa fa-search"></button>

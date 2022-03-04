@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Dashboard - KidsCity</title>
+	<link rel="shortcut icon" href="<?= base_url('assects/image/Logo.jpeg'); ?>">
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
 		body{background: #f2f2f2;}
@@ -19,7 +20,7 @@
 	<!-- 4 card section start -->
 	<div class="row" style="margin-top: 10px;margin-bottom: 0px;">
 		<div class="col l3 m4 s12">
-			<div class="card" style="background: #884dff;">
+			<div class="card" style="background: #666699;">
 				<div class="card-content">
 					<h6 style="font-weight: 500;font-size: 15px;color: white;">Order's<span class="right"><span class="fa fa-ellipsis-v dropdown-trigger" data-target="order_dropdown" style="cursor: pointer;color: white;"></span></span></h6>
 					<h5 style="margin-top: 25px;color: white;"><b><span id="show_orders">0</span></b><span class="right"><span class="fa fa-shopping-cart white-text"></span></span></h5>
@@ -37,7 +38,7 @@
 			</div>
 		</div>
 		<div class="col l3 m4 s12">
-			<div class="card" style="background: #ffaa00;">
+			<div class="card" style="background: #2db92d;">
 				<div class="card-content">
 					<h6 style="font-weight: 500;font-size: 15px;color: white;">Categories<span class="right"><span class="fa fa-ellipsis-v dropdown-trigger" data-target="category_dropdown" style="cursor: pointer;color: white;"></span></span></h6>
 					<h5 style="margin-top: 25px;color: white;"><b><span id="show_categories">0</span></b><span class="right"><span class="fa fa-list-alt white-text"></span></span></h5>
@@ -55,7 +56,7 @@
 			</div>
 		</div>
 		<div class="col l3 m4 s12">
-			<div class="card" style="background: #99e600;">
+			<div class="card" style="background: #ff80d5;">
 				<div class="card-content">
 					
 					<h6 style="font-weight: 500;font-size: 15px;color: white;">Products<span class="right"><span class="fa fa-ellipsis-v dropdown-trigger" data-target="product_dropdown" style="cursor: pointer;color: white;"></span></span></h6>
@@ -75,7 +76,7 @@
 			</div>
 		</div>
 		<div class="col l3 m4 s12">
-			<div class="card" style="background: #4d4dff;">
+			<div class="card" style="background: #cc9900;">
 				<div class="card-content">
 					<h6 style="font-weight: 500;font-size: 15px;color: white;">Customers<span class="right"><span class="fa fa-ellipsis-v dropdown-trigger" data-target="customer_dropdown" style="cursor: pointer;color: white;"></span></span></h6>
 					<h5 style="margin-top: 25px;color: white;"><b><span id="show_users">0</span></b><span class="right"><span class="fa fa-users white-text"></span></span></h5>

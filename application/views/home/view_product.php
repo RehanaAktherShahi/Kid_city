@@ -38,7 +38,7 @@
 							<a href="#!" class="btn waves-effect" style="background: #ac00e6;width: 100%;height: 40px;box-shadow: none;" onclick="add_to_cart('<?= $product[0]->id; ?>');"><span class="fa fa-shopping-cart"></span>&nbsp;Add to Cart</a>
 						</div>
 						<div class="col l6 m6 s12">
-							<button type="button" class="btn waves-effect waves-light" style="background: black;width: 100%;height: 40px;box-shadow: none;"><span class="fa fa-cube"></span>&nbsp;Buy Now</button>
+							<a href="#!" class="btn waves-effect waves-light" style="background: black;width: 100%;height: 40px;box-shadow: none;" onclick="add_to_cart('<?= $product[0]->id; ?>');"><span class="fa fa-cube"></span>&nbsp;Buy Now</a>
 						</div>
 
 					</div>
@@ -53,6 +53,7 @@
 			<?php if(count($related_products)):
 				foreach($related_products as $r_pro): ?>	
 	<div class="col l2 m3 s6">
+		<a href="<?= base_url('home/product_detail/'.$r_pro->id); ?>" target="_blank">
 		<!-- card-section start -->
 		<div class="card">
 			<div class="card-image">
@@ -68,13 +69,14 @@
 			</div>
 			<div class="card-content" style="padding: 3px;">
 				<center>
-				     <a href="" class="btn btn-flat btn-floating waves-effect"><span class="fa fa-shopping-cart"></span></a>
-				     <a href="" class="btn btn-flat btn-floating waves-effect"><span class="fa fa-eye"></span></a>
+				     <a href="#!" class="btn btn-flat btn-floating waves-effect" onclick="add_to_cart('<?= $r_pro->id; ?>');"><span class="fa fa-shopping-cart"></span></a>
+				     <a href="#!" class="btn btn-flat btn-floating waves-effect" onclick="view_product_details('<?= $r_pro->id; ?>')"><span class="fa fa-eye"></span></a>
 			    </center>
 
 		    </div>
 		</div>
 		<!-- card-section end -->
+	</a>
 	</div>
 	<?php endforeach;
 	else: ?>

@@ -1,9 +1,9 @@
 <style type="text/css">
-	nav{background: #ff8080;height: 45px;line-height: 45px;}
+	nav{background: #ac00e6;height: 45px;line-height: 45px;}
 	nav .brand-logo{font-weight: 500;font-size: 20px;}
 	.collapsible-header{padding-left: 30px!important;font-weight: 500;font-size: 14px;}
-	.collapsible-header:hover{background: #4CAF50!important;}
-	#side_manu li a:hover{background: #4CAF50;}
+	.collapsible-header:hover{background: #a366ff!important;}
+	#side_manu li a:hover{background: #a366ff;}
 </style>
 <!-- navbar section start -->
 	<nav>

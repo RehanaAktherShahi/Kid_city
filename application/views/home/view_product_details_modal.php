@@ -1,4 +1,4 @@
-<span class="right modal-close" style="padding: 8px 12px;background: red;color: white;margin-right: 25px;"><b>X</b></span>
+<span class="right modal-close" style="padding: 8px 12px;background: red;color: white;margin-right: 0px;"><b>X</b></span>
 <div class="modal-content">
 <div class="row">
 				<div class="col l4 m4 s12">
@@ -18,10 +18,10 @@
 					<h5><b><span class="left" style="font-weight: 800;font-size: 25px;"> &#2547;</span>&nbsp;<?= $product[0]->price; ?></b></h5>
 					<div class="row">
 						<div class="col l6 m6 s12">
-							<a href="<?= base_url('home/carts'); ?>" class="btn waves-effect" style="background: red;width: 100%;height: 40px;box-shadow: none;"><span class="fa fa-shopping-cart"></span>&nbsp;Add to Cart</a>
+							<a href="#!" class="btn waves-effect" style="background: #ac00e6;width: 100%;height: 40px;box-shadow: none;" onclick="add_to_cart('<?= $product[0]->id; ?>');"><span class="fa fa-shopping-cart"></span>&nbsp;Add to Cart</a>
 						</div>
 						<div class="col l6 m6 s12">
-							<a href="<?= base_url('home/place_order'); ?>" class="btn waves-effect waves-light" style="background: black;width: 100%;height: 40px;box-shadow: none;"><span class="fa fa-cube"></span>&nbsp;Buy Now</a>
+							<a href="#!" class="btn waves-effect waves-light" style="background: black;width: 100%;height: 40px;box-shadow: none;" onclick="add_to_cart('<?= $product[0]->id; ?>');"><span class="fa fa-cube"></span>&nbsp;Buy Now</a>
 						</div>
 
 					</div>

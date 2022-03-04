@@ -20,7 +20,11 @@ class Home extends CI_Controller
 			'status' => '0'
 		];
 		$data['categories'] = $this->cm->fetch_records_by_args('ms_categories',$args);
-
+		$order = [
+					'column_name' => 'count_sales',
+					'order' => 'desc'
+			];
+		$data['top_sold_products'] = $this->cm->fetch_all_records_with_orders('ms_products',$order,'6');
 		$this->load->view('home/index',$data);
 	}
 
@@ -523,6 +527,28 @@ class Home extends CI_Controller
 		$this->load->view('home/our_outlets');
 	}
 	
+	public function search_products($val)
+	{
+		$args = [
+			'product_title' => $val
+		];
+		$products = $this->cm->fetch_records_by_args_with_like('ms_products',$args);
+		$output = '';
+		if(count($products)){
+			$i=0;
+			foreach($products as $pro){
+				$i++;
+				$output .= '<a href='.base_url().'home/product_detail/'.$pro->id.'>'.$pro->product_title.'</a>';
+				if($i>9): break;
+
+				endif;
+			}
+		}
+		else{
+			$output = '<a href="#!">Product Not Found.</a>';
+		}
+		echo $output;
+	}
 }
 
 ?>

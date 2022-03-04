@@ -20,7 +20,7 @@
 		<!-- card section -->
 		<div class="card">
 			<div class="card-content" style="border-bottom: 1px solid silver;">
-				<a href="" class="btn waves-effect waves-light" style="background: blue;box-shadow: none;">Order Id - <?= $ord->id; ?></a>
+				<a href="" class="btn waves-effect waves-light" style="background: #ac00e6;box-shadow: none;">Order Id - <?= $ord->id; ?></a>
 				<a href="" class="btn waves-effect waves-dark right" style="background: none;color: grey;box-shadow: none;border: 1px solid silver;">Track Order</a>
 			</div>
 			<div class="card-content" style="border-bottom: 1px solid silver;">

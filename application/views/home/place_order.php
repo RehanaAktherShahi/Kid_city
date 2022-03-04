@@ -43,7 +43,7 @@
 			<!-- button section -->
 				<div class="row" style="margin-top: 18px;margin-bottom: 0px;">
 					<div class="col 16 m6 s6">
-						<a href="<?= base_url('home/user_signup/cart'); ?>" class="btn waves-effect waves-light" style="font-size: 12px;text-transform: capitalize;font-weight: 500;width: 100%;background: #663300;box-shadow: none;height: 40px;">Register Account</a>
+						<a href="<?= base_url('home/user_signup/cart'); ?>" class="btn waves-effect waves-light" style="font-size: 12px;text-transform: capitalize;font-weight: 500;width: 100%;background: #ac00e6;box-shadow: none;height: 40px;">Register Account</a>
 					</div>
 					<div class="col 16 m6 s6">
 						<a href="<?= base_url('home/user_signin/cart'); ?>" class="btn waves-effect waves-light" style="font-size: 12px;text-transform: capitalize;font-weight: 500;width: 100%;background: black;box-shadow: none;height: 40px;">Login Acoount</a>
@@ -68,7 +68,7 @@
 					<?= form_open('home/save_temp_address/'.$user_detail[0]->id); ?>
 					<h6 style="font-size: 14px;font-weight: 500;color: grey;">Shipping Address</h6>
 					<textarea name="shipping_address"><?= $address; ?></textarea>
-					<button type="submit" class="btn waves-effect waves-light" style="background: black;text-transform: capitalize;margin-top: 10px;">Save Address</button>
+					<button type="submit" class="btn waves-effect waves-light" style="background: #ac00e6;text-transform: capitalize;margin-top: 10px;">Save Address</button>
 					<?= form_close(); ?>
 				</div>
 				 <?php endif;?>

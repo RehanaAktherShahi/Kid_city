@@ -49,30 +49,37 @@
 <!--category-product-list-section start-->
 <div class="row">
 	<h6 style="padding-left: 10px;"><b>Top Sold Products</b></h6>
-	<?php for($i=0; $i<6; $i++): ?>
+	<?php
+	
+	if(count($top_sold_products)):
+		foreach($top_sold_products as $t_s_pro):
+	 ?>
 	<div class="col l2 m3 s6">
 		<!-- card-section start-->
-
+		<a href="<?= base_url('home/product_detail/'.$t_s_pro->id); ?>" target="_blank">
 		<div class="card">
 			<div class="card-image">
-				<img src="<?= base_url('assects/image/F1.jpg'); ?>" class="responsive-img" style="width: 100%;height: 190px;">
+				<img src="<?= base_url().'uploads/product_image/'.$t_s_pro->image; ?>" class="responsive-img" style="width: 100%;height: 190px;">
 			</div>
 			<div class="card-content" style="padding: 10px;border-bottom: 1px solid silver;">
-				<h6 style="font-size: 14px;color: blue;font-weight: 500;margin-top: 5px;">Product Title</h6>
+				<h6 style="font-size: 14px;color: blue;font-weight: 500;margin-top: 5px;"><?= $t_s_pro->product_title; ?></h6>
 				
-				<h5 style="font-size: 20px;color: green;font-weight: 500;margin-top: 5px;margin-bottom: 5px;"><span style="font-weight: 800;font-size: 20px;"> &#2547; </span>&nbsp;1500</h5>
+				<h5 style="font-size: 20px;color: green;font-weight: 500;margin-top: 5px;margin-bottom: 5px;"><span style="font-weight: 800;font-size: 20px;"> &#2547; </span>&nbsp;<?= number_format($t_s_pro->price); ?></h5>
 			</div>
 			<div class="card-content" style="padding: 3px;">
 				<center>
-				     <a href="" class="btn btn-flat btn-floating waves-effect"><span class="fa fa-shopping-cart"></span></a>
-				     <a href="" class="btn btn-flat btn-floating waves-effect"><span class="fa fa-eye"></span></a>
+				     <a href="#!" class="btn btn-flat btn-floating waves-effect" onclick="add_to_cart('<?= $t_s_pro->id; ?>');"><span class="fa fa-shopping-cart"></span></a>
+				     <a href="#!" class="btn btn-flat btn-floating waves-effect" onclick="view_product_details('<?= $t_s_pro->id; ?>')"><span class="fa fa-eye"></span></a>
 			    </center>
 
 		    </div>
 		</div>
 		<!-- card-section end-->
 	</div>
-<?php endfor; ?>
+	<?php endforeach;
+	else: ?>
+		<h6 style="padding-left: 15px;font-size: 14px;font-weight: 500;">Product Not Found.</h6>
+	<?php endif; ?>
 </div>
 <!--category-product-list-section end-->
 <!-- body-section end-->

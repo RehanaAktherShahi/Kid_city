@@ -2,11 +2,12 @@
 <html>
 <head>
 	<title>Manage Products - KidsCity</title>
+	<link rel="shortcut icon" href="<?= base_url('assects/image/Logo.jpeg'); ?>">
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
 		body{background: #f2f2f2;}
 		#category_image{width: 40px;height: 40px;border-radius: 100%;border: 1px  solid silver;}
-		.btn-flat:hover{background: #996633;color: white;}
+		.btn-flat:hover{background: #a366ff;color: white;}
 		.action_dropdown{width: 120px!important}
 		.action_dropdown li a{color: grey;font-size: 14px;font-weight: 500;}
 		#category_filter{width: 180px!important;padding-top: 8px;padding-bottom: 8px;}
@@ -43,7 +44,7 @@
 				</div>
 				<div class="col l6 m6 s12">
 					<span class="right">
-						<button type="button" class="btn waves-effect waves-light dropdown-trigger" data-target="category_filter" style="background: black;box-shadow: none;text-transform: capitalize;font-weight: 500;height: 40px;margin-top: 15px;"><span class="fa fa-filter"></span>&nbsp;Filter</button>
+						<button type="button" class="btn waves-effect waves-light dropdown-trigger" data-target="category_filter" style="background: #ac00e6;box-shadow: none;text-transform: capitalize;font-weight: 500;height: 40px;margin-top: 15px;"><span class="fa fa-filter"></span>&nbsp;Filter</button>
 					</span>
 					<!-- category filter -->
 					<ul class="dropdown-content" id="category_filter">

@@ -2,11 +2,12 @@
 <html>
 <head>
 	<title>Manage Orders - KidsCity</title>
+	<link rel="shortcut icon" href="<?= base_url('assects/image/Logo.jpeg'); ?>">
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
 		body{background: #f2f2f2;}
 
-		.btn-flat:hover{background: #996633;color: white;}
+		.btn-flat:hover{background: #a366ff;color: white;}
 		#search_order{display: flex;}
 		#search_order li:first-child{width: 250px;}
 		#input_box{border: 1px solid silver;box-shadow: none;box-sizing: border-box;padding-left: 10px;padding-right: 10px;height: 40px;border-radius: 0px;}

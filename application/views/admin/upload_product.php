@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Upload Product - KidsCity</title>
+	<link rel="shortcut icon" href="<?= base_url('assects/image/Logo.jpeg'); ?>">
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
 		body{background: #f2f2f2;}
@@ -46,8 +47,8 @@
 			<input type="text" name="size" style="width: 40%;" id="input_box" placeholder="Enter Product size">
 			<h6 style="font-size: 14px;font-weight: 500;">Price</h6>
 			<input type="number" name="price" style="width: 40%;" id="input_box" placeholder="Tk 150" required>
-			<button type="submit" class="btn waves-effect waves-light" style="background: black;box-shadow: none;text-transform: capitalize;font-weight: 500;height: 40px;margin-top: 15px;">Save Product</button>
-			<button type="reset" class="btn waves-effect waves-light" style="background: red;box-shadow: none;text-transform: capitalize;font-weight: 500;height: 40px;margin-top: 15px;">Reset</button>
+			<button type="submit" class="btn waves-effect waves-light" style="background: #ac00e6;box-shadow: none;text-transform: capitalize;font-weight: 500;height: 40px;margin-top: 15px;">Save Product</button>
+			<button type="reset" class="btn waves-effect waves-light" style="background: black;box-shadow: none;text-transform: capitalize;font-weight: 500;height: 40px;margin-top: 15px;">Reset</button>
 			<?= form_close(); ?>
 		</div>
 	</div>

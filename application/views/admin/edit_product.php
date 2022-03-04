@@ -11,6 +11,7 @@
 <html>
 <head>
 	<title>Edit Product - KidsCity</title>
+	<link rel="shortcut icon" href="<?= base_url('assects/image/Logo.jpeg'); ?>">
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
 		body{background: #f2f2f2;}
@@ -60,8 +61,8 @@
 			<input type="text" name="size" style="width: 40%;" id="input_box" value="<?= $product[0]->size; ?>" placeholder="Enter Product Size">
 			<h6 style="font-size: 14px;font-weight: 500;">Price</h6>
 			<input type="number" name="price" style="width: 40%;" id="input_box" value="<?= $product[0]->price; ?>" placeholder="Tk 150" required>
-			<button type="submit" class="btn waves-effect waves-light" style="background: black;box-shadow: none;text-transform: capitalize;font-weight: 500;height: 40px;margin-top: 15px;">Update Product</button>
-			<a href="<?= base_url('admin/manage_products'); ?>" class="btn waves-effect waves-light" style="background: red;box-shadow: none;text-transform: capitalize;font-weight: 500;height: 40px;line-height: 40px;margin-top: 15px;">Cancel</a>
+			<button type="submit" class="btn waves-effect waves-light" style="background: #ac00e6;box-shadow: none;text-transform: capitalize;font-weight: 500;height: 40px;margin-top: 15px;">Update Product</button>
+			<a href="<?= base_url('admin/manage_products'); ?>" class="btn waves-effect waves-light" style="background: black;box-shadow: none;text-transform: capitalize;font-weight: 500;height: 40px;line-height: 40px;margin-top: 15px;">Cancel</a>
 			<?= form_close(); ?>
 		</div>
 	</div>

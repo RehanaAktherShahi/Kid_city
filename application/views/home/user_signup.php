@@ -15,25 +15,7 @@
 </head>
 <body style="background: #ffe6ff;">
 	<!-- body section start -->
-	<!-- tobbar section start-->
-	<div id="top_bar" style="padding: 0px;">
-	<div class ="row">
-		<div class="col l3 m3 s10">
-			<h6 style="margin-top: 15px;"><a href="<?= base_url('home'); ?>" id="logo">Kids City</a></h6>
-		</div>
-		<div class="col l6 m6 s12"></div>
-		<div class="col l3 m3 s10">
-    	<span class="right" style="padding-right: 30px;padding-top: 10px;"><a href="#!" class="dropdown-trigger" data-target="my_account_dropdown" style="color: white;"><span class="fa fa-user"></span>&nbsp;My Account</a></span>
-    </div>
-    <!-- my account dropdown -->
-	<ul class="dropdown-content" id="my_account_dropdown">
-		<li><a href="<?= base_url('home/user_signup'); ?>" class="waves-effect"><span class="fa fa-user-plus"></span>&nbsp;Register</a></li>
-		<li><a href="<?= base_url('home/user_signin'); ?>" class="waves-effect"><span class="fa fa-sign-in-alt"></span>&nbsp;Login</a></li>
-	</ul>
-	<!-- my account dropdown -->
-	</div> 
-	</div>
-	<!-- tobbar section end -->
+	<?php $this->load->view('home/header'); ?>
 	<!-- user sign_up form start -->
 	<div class="row" style="margin-top: 10px;margin-bottom: 0px;">
 		<div class="col l4 m4 s12"></div>
@@ -59,7 +41,7 @@
 				<input type="password" name="confirm_password" onkeyup="check_password()" id="input_box" placeholder="XXXXXXXX">
 				<h6 style="font-size: 14px;color: grey;font-weight: 500;">Address</h6>
 				<textarea name="address" placeholder="Enter Your Address"></textarea>
-				<button type="submit" class="btn waves-effect" id="btn_register_now" style="background: blue;width: 100%;margin-top: 10px;box-shadow: none;text-transform: capitalize;">Register Now</button>
+				<button type="submit" class="btn waves-effect" id="btn_register_now" style="background: #ac00e6;width: 100%;margin-top: 10px;box-shadow: none;text-transform: capitalize;">Register Now</button>
 				<h6 style="font-size: 14px;color: red;font-weight: 500;text-align: center;">I have already Account</h6>
 				<a href="<?= base_url('home/user_signin'); ?>" class="btn waves-effect" style="background: black;width: 100%;margin-top: 10px;box-shadow: none;text-transform: capitalize;">Sign In</a>
 				<?= form_close(); ?>

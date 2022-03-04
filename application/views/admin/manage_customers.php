@@ -2,11 +2,12 @@
 <html>
 <head>
 	<title>Manage Customers - KidsCity</title>
+	<link rel="shortcut icon" href="<?= base_url('assects/image/Logo.jpeg'); ?>">
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
 		body{background: #f2f2f2;}
 		
-		.btn-flat:hover{background: #996633;color: white;}
+		.btn-flat:hover{background: #a366ff;color: white;}
 		.action_dropdown{width: 150px!important}
 		.action_dropdown li a{color: grey;font-size: 14px;font-weight: 500;}
 		#pagination a{color: black;font-weight: 500;border: 1px solid black;padding: 5px 10px;margin-left: 5px;}

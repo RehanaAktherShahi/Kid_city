@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Order Details - KidsCity</title>
+	<link rel="shortcut icon" href="<?= base_url('assects/image/Logo.jpeg'); ?>">
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
 		body{background: #f2f2f2;}
@@ -89,7 +90,7 @@
 								<?php endif; ?>
 				
 			</select>
-			<button type="submit" class="btn waves-effect waves-light" style="background: black;text-transform: capitalize;">Update Status</button>
+			<button type="submit" class="btn waves-effect waves-light" style="background: #ac00e6;text-transform: capitalize;">Update Status</button>
 			<a href="<?= base_url('admin/print_label/'.$order_details[0]->id); ?>" target="_blank" class="btn waves-effect waves-light" style="background: black;text-transform: capitalize;">Print Lable</a>
 			<?= form_close(); ?>
 		</div>

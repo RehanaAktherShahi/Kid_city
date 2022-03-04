@@ -143,4 +143,33 @@
 	}
 	// calculate carts products script end
 
+	// search products script start
+	$('body').click(function(){
+		$('#show_product_list').hide();
+	});
+	function search_products(val){
+		if(val.length > 2){
+			$.ajax({
+			type:'ajax',
+			method:'GET',
+			url:'<?= base_url('home/search_products/'); ?>'+val,
+			beforeSend:function(data){
+				//$('#preloader').modal('open');
+				//$('#preloader_heading').text('Update Product Quantity.');
+			},
+			success:function(data){
+				//$('#preloader').modal('close');
+				$('#show_product_list').show();
+				$('#show_product_list').html(data);
+				
+			},
+			error:function(){
+				alert('Error ! Product Search.');
+			}
+		});
+		}
+		
+	}
+	// search products script end
+
 	</script>

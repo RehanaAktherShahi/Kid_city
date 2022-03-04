@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Shipping Label - KidsCity</title>
+	<link rel="shortcut icon" href="<?= base_url('assects/image/Logo.jpeg'); ?>">
 	<?php $this->load->view('home/css-file'); ?>
 	<style type="text/css">
 		table tr th{font-size: 14px;}
