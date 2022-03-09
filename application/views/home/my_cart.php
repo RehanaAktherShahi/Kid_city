@@ -55,7 +55,7 @@
 						<button type="button" class="btn btn-floating" onclick="update_quantity('sub','<?= $pro->product_id; ?>','<?= $pro->id; ?>')"   style="background: #ac00e6;box-shadow: none;">-
 						</button>
 					</li>
-					<input type="text" name="quantity_<?= $pro->id; ?>" id="input-box" value="<?= $pro->quantity; ?>" readonly>
+					<input type="text" name="quantity_<?= $pro->id; ?>" id="input-box" value="<?= $pro->quantity; ?>" onChange="update_quantity('add','<?= $pro->product_id; ?>','<?= $pro->id; ?>')">
 					<li>
 						<button type="button" class="btn btn-floating" onclick="update_quantity('add','<?= $pro->product_id; ?>','<?= $pro->id; ?>')"   style="background: #ac00e6;box-shadow: none;">+	
 						</button>
